@@ -114,11 +114,15 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
+
         $invoices = Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
             ->where('invoice_number', $id)
             ->get();
-//        dd($invoices);
-        return view('admin.invoice.show', compact('invoices'));
+
+        $payable = $invoices[0]->payable;
+
+
+        return view('admin.invoice.show', compact('invoices', 'payable'));
     }
 
     /**

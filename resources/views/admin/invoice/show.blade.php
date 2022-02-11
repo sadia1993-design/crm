@@ -20,7 +20,7 @@
 
     @endif
 
-    <div class="container-fluid wrapper">
+    <div class="container wrapper">
        <div class="card">
            <div class="card-body">
            @if (count($invoices) > 0)
@@ -28,13 +28,7 @@
                      $customer = $invoices[0]->customer;
                 @endphp
                 <div class="addr-wrap d-flex justify-content-between">
-                    <div class="addr">
-                        <h3><strong>Street Address:</strong></h3>
-                        <p>
-                            {{$customer->address}}  <br>
-                            {{$customer->phone}}
-                        </p>
-                    </div>
+
                     <div class="invId">
                         <table border="1" class="table">
                             <tr>
@@ -42,35 +36,42 @@
                                 <td>{{$invoices[0]->invoice_number}}</td>
                             </tr>
                             <tr>
-                                <td>Date</td>
+                                <td><strong>Date</strong></td>
                                 <td>{{$invoices[0]->date}}</td>
                             </tr>
                             <tr>
-                                <td>Type</td>
+                                <td><strong>Type</strong></td>
                                 <td>{{$invoices[0]->invoice_type}}</td>
                             </tr>
                         </table>
                     </div>
+
                 </div>
 
+             <div class="addr-wrap  d-flex justify-content-between" style="border: 1px solid #CCCCCC; padding: 10px">
                <!--Bill to-->
-                   <table border="1" class="table">
-                       <tr>
-                           <td><strong>Bill To:</strong></td>
-                       </tr>
-                       <tr>
-                           <td>
-                               <span><strong>Name: </strong>  {{$customer->user->name}}</span> <br>
-                               <span><strong>Address: </strong> {{$customer->address}}</span> <br>
-                               <span><strong>Email: </strong> {{$customer->user->email}}</span> <br>
-                               <span><strong>Phone: </strong> {{$customer->phone}}</span> <br>
-                           </td>
-                       </tr>
-                   </table>
+                 <div id="billToWrap">
+                     <h4><strong>Bill To</strong></h4>
+                     <div class="billTo">
+                         <span><strong>Name: </strong>  {{$customer->user->name}}</span> <br>
+                         <span><strong>Address: </strong> {{$customer->address}}</span> <br>
+                         <span><strong>Email: </strong> {{$customer->user->email}}</span> <br>
+                         <span><strong>Phone: </strong> {{$customer->phone}}</span> <br>
+                     </div>
+                 </div>
+
+                 
+             </div>
+
+               <!--total payable-->
+               <div class="payable bg-dark " style="padding: 10px">
+                   <h3 class="text-white  text-center mb-0"><strong>Invoice Total: {{$payable}} /-</strong></h3>
+               </div>
+                   <br>
 
                <!--Product Details -->
                <div class="items-info">
-                   <h4><strong>Product Details:</strong></h4>
+                   <h4><strong>Product Details</strong></h4>
                    <table border="1" class="table">
                        <tr>
                            <td><strong>SL</strong></td>
@@ -142,7 +143,7 @@
                <div class="button-custom d-flex justify-content-center">
                    <form action="{{route('mail', $value->invoice_number)}}" method="post">
                        @csrf
-                      <button class="btn btn-lg btn-blue" type="submit">Mail</button>
+                      <button class="btn btn-lg btn-dark" type="submit"><i class="fa fa-envelope"></i>  Mail Invoice</button>
                    </form>
                </div>
 
