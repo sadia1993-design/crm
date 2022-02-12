@@ -132,6 +132,10 @@
                                                 <td><input type="text" readonly class="form-control subTotal" value="0"></td>
                                             </tr>
                                             <tr class="text-right">
+                                                <td colspan="6" >Total Tax</td>
+                                                <td><input type="text" readonly class="form-control subTax" value="0"></td>
+                                            </tr>
+                                            <tr class="text-right">
                                                 <td colspan="6" >Total Discount</td>
                                                 <td><input type="text" readonly class="form-control total-discount"value="0"></td>
                                             </tr>
@@ -185,6 +189,13 @@
                     if (value == data.id) {
                         $("#quantity-" + value).val(parseFloat($("#quantity-" + data.id).val()) + 1);
                         $("#quantity-" + value).trigger('keyup');
+                        var qty = $("#quantity-" + data.id).val();
+                        var price = $("#price-" + data.id).val();
+                        var tax = $("#tax-" + data.id).val();
+                        var amount = qty*price;
+                        var taxDecimal = amount* tax/100;
+                        $("#taxCount-" + data.id).val(taxDecimal);
+                        updateSubTax();
                         duplicate = true
                     } else {
                         items.push(data.id);
@@ -220,11 +231,12 @@
                            '<div class="input-group-prepend">' +
                               '<span class="input-group-text">TK-</span>' +
                            '</div>' +
-                           '<input type="number"  class="form-control price-custom"  name="rate[]"  value="' +data.rate+ '">' +
+                           '<input type="number" id="price-'+data.id+'"  class="form-control price-custom"  name="rate[]"  value="' +data.rate+ '">' +
                         '</div>'+
                     '</td>' +
                     '<td style="padding-left:0 !important" class="col-md-1">' +
-                       '<input type="number"   class="form-control tax-custom" name="tax[]"   value="' + tax+ '">' +
+                       '<input type="number" id="tax-'+data.id+'"   class="form-control tax-custom" name="tax[]"   value="' + tax+ '">' +
+                       '<input type="number" readonly  id="taxCount-'+data.id+'"  class="form-control tax-default"    value="0">' +
                     '</td>' +
                     '<td style="padding-left:0 !important" class="col-md-2">' +
                         '<div class="input-group">' +
@@ -255,6 +267,16 @@
                 updateSubTotal();
                 updateGrandTotal();
                 updateDisTotal();
+
+
+                var qty = $("#quantity-" + data.id).val();
+                var price = $("#price-" + data.id).val();
+                var tax = $("#tax-" + data.id).val();
+                var amount = qty*price;
+                var taxDecimal = amount* tax/100;
+                $("#taxCount-" + data.id).val(taxDecimal);
+
+                updateSubTax();
             }
         });
 
@@ -276,11 +298,11 @@
 
             var qty = $(this).val();
             var rate = $(this).closest('tr').find('.price-custom').val();
-            var tax = $(this).closest('tr').find('.tax-custom').val();
+            // var tax = $(this).closest('tr').find('.tax-custom').val();
             var total = qty * rate;
-            var tax_amount = total * tax / 100;
-            var total_amount = total + tax_amount;
-            $(this).closest('tr').find('.total-custom').val(total_amount);
+            // var tax_amount = total * tax / 100;
+            // var total_amount = total + tax_amount;
+            $(this).closest('tr').find('.total-custom').val(total);
 
             updateSubTotal();
             updateGrandTotal();
@@ -297,11 +319,11 @@
 
             var rate = $(this).val();
             var qty = $(this).closest('tr').find('.qty-custom').val();
-            var tax = $(this).closest('tr').find('.tax-custom').val();
+            // var tax = $(this).closest('tr').find('.tax-custom').val();
             var total = qty * rate;
-            var tax_amount = total * tax / 100;
-            var total_amount = total + tax_amount;
-            $(this).closest('tr').find('.total-custom').val(total_amount);
+            // var tax_amount = total * tax / 100;
+            // var total_amount = total + tax_amount;
+            $(this).closest('tr').find('.total-custom').val(total);
 
             updateSubTotal();
             updateGrandTotal();
@@ -315,18 +337,38 @@
             }
 
 
+            var tax_default = 0;
             var tax = $(this).val();
             var qty = $(this).closest('tr').find('.qty-custom').val();
             var rate = $(this).closest('tr').find('.price-custom').val();
             var total = qty * rate;
             var tax_amount = total * tax / 100;
-            var total_amount = total + tax_amount;
-            $(this).closest('tr').find('.total-custom').val(total_amount);
 
-            updateSubTotal();
-            updateGrandTotal();
-            updateDisTotal();
+            tax_default += tax_amount;
+            console.log(tax_default);
+            // $('.subTax').val(tax_default);
+
+            // var total_amount = total + tax_amount;
+            $(this).closest('tr').find('.tax-default').val(tax_default);
+            //
+            // updateSubTotal();
+            // updateGrandTotal();
+            // updateDisTotal();
+            updateSubTax();
+
         });
+
+        function updateSubTax(){
+
+            var amount = 0.00
+            $('.tax-default').each(function() {
+                var currentElement = $(this);
+                var value = parseFloat(currentElement.val());
+                amount += value
+            });
+
+            $(".subTax").val(amount)
+        }
 
         $(document).on('keyup change', '.discount', function () {
 
@@ -362,6 +404,8 @@
 
         $(".subTotal").val(amount)
     }
+
+
 
     function  updateDisTotal(){
         var amount = 0.00;
