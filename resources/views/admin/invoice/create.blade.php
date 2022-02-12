@@ -110,16 +110,16 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <div class="table-responsive">
-                                    <table class="table"  id="invoice-table" style="width:100%">
-                                        <thead class=" bg-blue">
+                                <div class="table-responsive ">
+                                    <table class="table "  id="invoice-table" style="width:100%">
+                                        <thead class=" bg-primary">
                                             <tr >
                                                 <th class="text-white">Item Name</th>
                                                 <th class="text-white">Quantity</th>
                                                 <th class="text-white">Price</th>
+                                                <th class="text-white">tax (%)</th>
+                                                <th class="text-white">DisCount (%)</th>
                                                 <th class="text-white">Total</th>
-                                                <th class="text-white">tax</th>
-                                                <th class="text-white">DisCount</th>
                                                 <th class="text-white">Action</th>
                                             </tr>
                                         </thead>
@@ -127,19 +127,19 @@
 
 
                                             <tr class="text-right">
-                                                <td colspan="5" >SubTotal</td>
+                                                <td colspan="5" ><strong>SubTotal </strong></td>
                                                 <td><input type="text" readonly class="form-control subTotal" value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td colspan="5" >Total Tax</td>
+                                                <td colspan="5" ><strong>Total Tax</strong></td>
                                                 <td><input type="text" readonly class="form-control subTax" value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td colspan="5" >Total Discount</td>
+                                                <td colspan="5" ><strong>Total Discount</strong></td>
                                                 <td><input type="text" readonly class="form-control total-discount"value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td  colspan="5" >GrandTotal</td>
+                                                <td  colspan="5" ><strong>GrandTotal (Only)</strong></td>
                                                 <td><input type="text" readonly class="form-control Total" name="grandTotal" value="0"></td>
                                             </tr>
 
@@ -234,14 +234,7 @@
 
                        '</div>'+
                     '</td>' +
-                    '<td style="padding-left:0 !important" class="col-md-2">' +
-                        '<div class="input-group">' +
-                           '<div class="input-group-prepend">' +
-                              '<span class="input-group-text">Total</span>' +
-                           '</div>' +
-                           '<input type="text" readonly class="form-control total-custom net-amount" name="amount[]"  value="0">' +
-                        '</div>'+
-                    '</td>' +
+
                     '<td style="padding-left:0 !important" class="col-md-1">' +
                        '<input type="number" id="tax-'+data.id+'"   class="form-control tax-custom" name="tax[]"   value="' + tax+ '">' +
                        '<input type="hidden" readonly  id="taxCount-'+data.id+'"  class="form-control tax-default"    value="0">' +
@@ -249,8 +242,16 @@
 
                     '<td style="padding-left:0 !important" class="col-md-1">' +
                        '<input type="number"  class="form-control discount" name="discount[]"  value="0">' +
+                       '<input type="hidden" readonly  id="disCount-'+data.id+'" class="form-control discount-default"  value="0">' +
                     '</td>' +
-
+                    '<td style="padding-left:0 !important" class="col-md-2">' +
+                        '<div class="input-group">' +
+                           '<div class="input-group-prepend">' +
+                              '<span class="input-group-text">Tk</span>' +
+                           '</div>' +
+                           '<input type="text" readonly class="form-control total-custom net-amount" name="amount[]"  value="0">' +
+                        '</div>'+
+                    '</td>' +
                     '<td style="padding-left:0 !important" class="col-md-1">' +
                         '<button type="button" class="btn btn-danger btn-md remove-item" id="close-tr"><i class="fa fa-window-close"></i></button>' +
                     '</td>' +
@@ -293,8 +294,14 @@
             var qty = $(this).val();
             var rate = $(this).closest('tr').find('.price-custom').val();
             var tax = $(this).closest('tr').find('.tax-custom').val();
+            var discount = $(this).closest('tr').find('.discount').val();
+
             var total = qty * rate;
             var taxDecimal = total * tax/100;
+            var discountDecimal = total * discount/100;
+
+
+            $(this).closest('tr').find('.discount-default').val(discountDecimal);
 
             $(this).closest('tr').find('.tax-default').val(taxDecimal);
             $(this).closest('tr').find('.total-custom').val(total);
@@ -316,11 +323,17 @@
             var rate = $(this).val();
             var qty = $(this).closest('tr').find('.qty-custom').val();
             var tax = $(this).closest('tr').find('.tax-custom').val();
+            var discount = $(this).closest('tr').find('.discount').val();
+
             var total = qty * rate;
             var tax_amount = total * tax / 100;
+            var discountDecimal = total * discount/100;
 
             $(this).closest('tr').find('.total-custom').val(total);
             $(this).closest('tr').find('.tax-default').val(tax_amount);
+            $(this).closest('tr').find('.discount-default').val(discountDecimal);
+
+
 
             updateSubTotal();
             updateGrandTotal();
@@ -343,16 +356,10 @@
             var tax_amount = total * tax / 100;
 
             tax_default += tax_amount;
-            console.log(tax_default);
-            // $('.subTax').val(tax_default);
-
-            // var total_amount = total + tax_amount;
             $(this).closest('tr').find('.tax-default').val(tax_default);
-            //
-            // updateSubTotal();
-            // updateGrandTotal();
-            // updateDisTotal();
+
             updateSubTax();
+            updateGrandTotal();
 
         });
 
@@ -365,7 +372,7 @@
                 amount += value
             });
 
-            $(".subTax").val(amount)
+            $(".subTax").val(amount+'/-')
         }
 
         $(document).on('keyup change', '.discount', function () {
@@ -380,15 +387,12 @@
             var rate = $(this).closest('tr').find('.price-custom').val();
             var tax = $(this).closest('tr').find('.tax-custom').val();
             var total = qty * rate;
-            var tax_amount = total * tax / 100;
-            var total_amount = total + tax_amount;
-            var decimal = total_amount * (discount/100);
-            var grandTotal = parseFloat(total_amount) - parseFloat(decimal);
-            $(this).closest('tr').find('.net-amount').val(grandTotal);
+            var discountDecimal = total * (discount/100);
 
-            updateSubTotal();
-            updateGrandTotal();
+
+            $(this).closest('tr').find('.discount-default').val(discountDecimal);
             updateDisTotal();
+            updateGrandTotal();
         })
     });
 
@@ -400,26 +404,29 @@
             amount += value
         });
 
-        $(".subTotal").val(amount)
+        $(".subTotal").val(amount+'/-')
     }
 
 
 
     function  updateDisTotal(){
         var amount = 0.00;
-        $('.discount').each( function () {
+        $('.discount-default').each( function () {
 
             var currentElement = $(this);
             var value = parseFloat(currentElement.val());
             amount += value;
         });
-        $(".total-discount").val(amount)
+        $(".total-discount").val(amount+'/-')
 
     }
 
     function updateGrandTotal(){
         var subTotal = $('.subTotal').val();
-        $('.Total').val(subTotal);
+        var subTax = $('.subTax').val();
+        var subDiscount = $('.total-discount').val();
+        var grossTotal = (parseFloat(subTotal) + parseFloat(subTax)) - parseFloat(subDiscount);
+        $('.Total').val(grossTotal+'/-');
 
     }
 
