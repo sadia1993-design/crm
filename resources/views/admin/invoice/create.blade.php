@@ -117,10 +117,9 @@
                                                 <th class="text-white">Item Name</th>
                                                 <th class="text-white">Quantity</th>
                                                 <th class="text-white">Price</th>
-                                                <th class="text-white">Tax</th>
-                                                <th class="text-white">Amount</th>
-                                                <th class="text-white">DisCount</th>
                                                 <th class="text-white">Total</th>
+                                                <th class="text-white">tax</th>
+                                                <th class="text-white">DisCount</th>
                                                 <th class="text-white">Action</th>
                                             </tr>
                                         </thead>
@@ -128,19 +127,19 @@
 
 
                                             <tr class="text-right">
-                                                <td colspan="6" >SubTotal</td>
+                                                <td colspan="5" >SubTotal</td>
                                                 <td><input type="text" readonly class="form-control subTotal" value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td colspan="6" >Total Tax</td>
+                                                <td colspan="5" >Total Tax</td>
                                                 <td><input type="text" readonly class="form-control subTax" value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td colspan="6" >Total Discount</td>
+                                                <td colspan="5" >Total Discount</td>
                                                 <td><input type="text" readonly class="form-control total-discount"value="0"></td>
                                             </tr>
                                             <tr class="text-right">
-                                                <td  colspan="6" >GrandTotal</td>
+                                                <td  colspan="5" >GrandTotal</td>
                                                 <td><input type="text" readonly class="form-control Total" name="grandTotal" value="0"></td>
                                             </tr>
 
@@ -219,7 +218,7 @@
 
                 // console.log(items)
                 var html =  '<tr>' +
-                    '<td style="padding-left:0 !important" class="col-md-1">' +
+                    '<td style="padding-left:0 !important" class="col-md-2">' +
                        '<input type="text" readonly class="form-control" name="item_name[]"   value="'  + data.name + '">' +
                        '<input type="hidden"  name="item_id[]"   value="'  + data.id + '">' +
                     '</td>' +
@@ -232,31 +231,26 @@
                               '<span class="input-group-text">TK-</span>' +
                            '</div>' +
                            '<input type="number" id="price-'+data.id+'"  class="form-control price-custom"  name="rate[]"  value="' +data.rate+ '">' +
-                        '</div>'+
-                    '</td>' +
-                    '<td style="padding-left:0 !important" class="col-md-1">' +
-                       '<input type="number" id="tax-'+data.id+'"   class="form-control tax-custom" name="tax[]"   value="' + tax+ '">' +
-                       '<input type="number" readonly  id="taxCount-'+data.id+'"  class="form-control tax-default"    value="0">' +
-                    '</td>' +
-                    '<td style="padding-left:0 !important" class="col-md-2">' +
-                        '<div class="input-group">' +
-                            '<div class="input-group-prepend">' +
-                                '<span class="input-group-text">Amount</span>' +
-                             '</div>' +
-                             '<input type="text" readonly class="form-control total-custom "   value="0">' +
-                        '</div>'+
-                    '</td>' +
-                    '<td style="padding-left:0 !important" class="col-md-2">' +
-                       '<input type="number"  class="form-control discount" name="discount[]"  value="0">' +
+
+                       '</div>'+
                     '</td>' +
                     '<td style="padding-left:0 !important" class="col-md-2">' +
                         '<div class="input-group">' +
                            '<div class="input-group-prepend">' +
-                               '<span class="input-group-text">Total</span>' +
+                              '<span class="input-group-text">Total</span>' +
                            '</div>' +
                            '<input type="text" readonly class="form-control total-custom net-amount" name="amount[]"  value="0">' +
-                      '</div>'+
+                        '</div>'+
                     '</td>' +
+                    '<td style="padding-left:0 !important" class="col-md-1">' +
+                       '<input type="number" id="tax-'+data.id+'"   class="form-control tax-custom" name="tax[]"   value="' + tax+ '">' +
+                       '<input type="hidden" readonly  id="taxCount-'+data.id+'"  class="form-control tax-default"    value="0">' +
+                    '</td>' +
+
+                    '<td style="padding-left:0 !important" class="col-md-1">' +
+                       '<input type="number"  class="form-control discount" name="discount[]"  value="0">' +
+                    '</td>' +
+
                     '<td style="padding-left:0 !important" class="col-md-1">' +
                         '<button type="button" class="btn btn-danger btn-md remove-item" id="close-tr"><i class="fa fa-window-close"></i></button>' +
                     '</td>' +
@@ -298,15 +292,17 @@
 
             var qty = $(this).val();
             var rate = $(this).closest('tr').find('.price-custom').val();
-            // var tax = $(this).closest('tr').find('.tax-custom').val();
+            var tax = $(this).closest('tr').find('.tax-custom').val();
             var total = qty * rate;
-            // var tax_amount = total * tax / 100;
-            // var total_amount = total + tax_amount;
+            var taxDecimal = total * tax/100;
+
+            $(this).closest('tr').find('.tax-default').val(taxDecimal);
             $(this).closest('tr').find('.total-custom').val(total);
 
             updateSubTotal();
             updateGrandTotal();
             updateDisTotal();
+            updateSubTax();
 
         });
 
@@ -319,15 +315,17 @@
 
             var rate = $(this).val();
             var qty = $(this).closest('tr').find('.qty-custom').val();
-            // var tax = $(this).closest('tr').find('.tax-custom').val();
+            var tax = $(this).closest('tr').find('.tax-custom').val();
             var total = qty * rate;
-            // var tax_amount = total * tax / 100;
-            // var total_amount = total + tax_amount;
+            var tax_amount = total * tax / 100;
+
             $(this).closest('tr').find('.total-custom').val(total);
+            $(this).closest('tr').find('.tax-default').val(tax_amount);
 
             updateSubTotal();
             updateGrandTotal();
             updateDisTotal();
+            updateSubTax();
         });
 
         $(document).on('keyup change', '.tax-custom', function() {
