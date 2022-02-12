@@ -24,7 +24,7 @@
         </div>
 
     @endif
-           <form action="{{route('invoice.store')}}" method="post">
+           <form action="{{route('invoice.store')}}" class="needs-validation" novalidate method="post">
                 @csrf
 
 
@@ -33,7 +33,7 @@
                         <div class="form-row flex-nowrap">
                             <div class="form-group col-md-6">
                                     <label for="customer_name">Select Customer</label><br>
-                                    <select id="customer_name" class="custom-select" name="customer_id">
+                                    <select id="customer_name" class="custom-select" name="customer_id" required>
                                         <option value="">Select Customer</option>
                                         @forelse ($all_customers as $all)
                                         <option value="{{$all->id}}">{{$all->user->name}}</option>
@@ -74,7 +74,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="invoice_type">Invoice Type</label><br>
-                                <select id="invoice_type" class="custom-select invoice-type" name="invoice_type" >
+                                <select id="invoice_type" class="custom-select invoice-type" name="invoice_type" required >
                                     <option value="">Select Invoice Type</option>
                                     <option value="regular">Regular</option>
                                     <option value="recurring">Recurring</option>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group col-md-6 recurring-block" style="display: none;">
                                 <label for="recurring " ></label><br>
-                                <input type="text" name="recurring" id="recurring" class="form-control recurring " style="margin-top: 7px" placeholder="type(in days)">
+                                <input type="text" required name="recurring" id="recurring" class="form-control recurring " style="margin-top: 7px" placeholder="type(in days)">
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                         '</div>'+
                     '</td>' +
                     '<td style="padding-left:0 !important" class="col-md-1">' +
-                        '<button type="button" class="btn btn-danger btn-md remove-item" id="close-tr"><i class="fa fa-window-close"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-md remove-item" data-id="'+data.id+'" id="close-tr"><i class="fa fa-window-close"></i></button>' +
                     '</td>' +
                     '</tr>' ;
 
@@ -275,13 +275,21 @@
             }
         });
 
+
         //remove selected item
         $(document).on('click', '#close-tr', function() {
             $(this).closest('tr').remove();
+            var id = $(this).data('id')
+            items = items.filter( function(value) {
+                return value != id;
+            });
+
             updateSubTotal();
-            updateGrandTotal();
+            updateSubTax();
             updateDisTotal();
+            updateGrandTotal();
         });
+
 
         //calculation
         $(document).on('keyup change', '.qty-custom', function() {
@@ -372,7 +380,7 @@
                 amount += value
             });
 
-            $(".subTax").val(amount+'/-')
+            $(".subTax").val(amount)
         }
 
         $(document).on('keyup change', '.discount', function () {
@@ -404,7 +412,7 @@
             amount += value
         });
 
-        $(".subTotal").val(amount+'/-')
+        $(".subTotal").val(amount)
     }
 
 
@@ -417,8 +425,7 @@
             var value = parseFloat(currentElement.val());
             amount += value;
         });
-        $(".total-discount").val(amount+'/-')
-
+        $(".total-discount").val(amount)
     }
 
     function updateGrandTotal(){
@@ -426,9 +433,11 @@
         var subTax = $('.subTax').val();
         var subDiscount = $('.total-discount').val();
         var grossTotal = (parseFloat(subTotal) + parseFloat(subTax)) - parseFloat(subDiscount);
-        $('.Total').val(grossTotal+'/-');
-
+        $('.Total').val(grossTotal);
     }
+
+
+
 
 </script>
 
