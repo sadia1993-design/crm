@@ -73,7 +73,7 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
         $request->validate([
             'customer_id' => 'required',
@@ -97,6 +97,8 @@ class InvoiceController extends Controller
                 $invoice['discount']=$request->discount[$k];
                 Invoice::create($invoice);
             }
+
+
             return redirect()->route('invoice.create')->with('success', 'Invoice Created Successfully');
 
         }

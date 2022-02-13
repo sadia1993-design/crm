@@ -29,6 +29,17 @@
                 @endphp
                 <div class="addr-wrap d-flex justify-content-between">
 
+
+                    <div id="billToWrap">
+                        <h4><strong>Bill To</strong></h4>
+                        <div class="billTo">
+                            <span><strong>Name: </strong>  {{$customer->user->name}}</span> <br>
+                            <span><strong>Address: </strong> {{$customer->address}}</span> <br>
+                            <span><strong>Email: </strong> {{$customer->user->email}}</span> <br>
+                            <span><strong>Phone: </strong> {{$customer->phone}}</span> <br>
+                        </div>
+                    </div>
+
                     <div class="invId">
                         <table border="1" class="table">
                             <tr>
@@ -46,22 +57,10 @@
                         </table>
                     </div>
 
+
+
                 </div>
-
-             <div class="addr-wrap  d-flex justify-content-between" style="border: 1px solid #CCCCCC; padding: 10px">
-               <!--Bill to-->
-                 <div id="billToWrap">
-                     <h4><strong>Bill To</strong></h4>
-                     <div class="billTo">
-                         <span><strong>Name: </strong>  {{$customer->user->name}}</span> <br>
-                         <span><strong>Address: </strong> {{$customer->address}}</span> <br>
-                         <span><strong>Email: </strong> {{$customer->user->email}}</span> <br>
-                         <span><strong>Phone: </strong> {{$customer->phone}}</span> <br>
-                     </div>
-                 </div>
-
-
-             </div>
+                   <br>
 
                <!--total payable-->
                <div class="payable bg-dark " style="padding: 10px">
@@ -79,8 +78,8 @@
                            <td><strong>Unit</strong></td>
                            <td><strong>Price</strong></td>
                            <td><strong>Quantity</strong></td>
-                           <td><strong>Tax</strong></td>
-                           <td><strong>Discount</strong></td>
+                           <td><strong>Tax (%)</strong></td>
+                           <td><strong>Discount (%)</strong></td>
                            <td><strong>Total</strong></td>
                        </tr>
 
@@ -94,8 +93,13 @@
 
                            @php
                               $subTotal += $value->total;
-                              $tax += $value->tax;
-                              $discount += $value->discount;
+
+                              $mrp = $value->items->rate * $value->qty;
+                              $subTax = $mrp * $value->tax/100;
+                              $tax +=  $subTax;
+
+                              $subDiscount = $mrp *$value->discount/100;
+                              $discount += $subDiscount;
 
 
                            @endphp
@@ -112,40 +116,58 @@
                            </tr>
                        @empty
                        @endforelse
+
+                       @php
+                            $grandTotal = ($subTotal + $tax) -  $discount;
+                       @endphp
+
+
+
+                   </table>
+
+
+                   <!---new summery -->
+                   <div class="table-responsive">
+                       <table class="table table-bordered table-striped" style="width:30% ;margin-left: auto;">
+                           <thead style="text-align: center">
+                                <th colspan="2">Invoice Summery</th>
+                           </thead>
                            <tr>
-                               <td colspan="6"></td>
+
                                <td><strong>SubTotal</strong></td>
                                <td><strong>{{$subTotal}}/-</strong></td>
                            </tr>
                            <tr>
-                               <td colspan="6"></td>
+
                                <td><strong>Tax</strong></td>
-                               <td><strong>{{$tax}}/-</strong></td>
+                               <td><strong>{{$tax }}/-</strong></td>
                            </tr>
                            <tr>
-                               <td colspan="6"></td>
+
                                <td><strong>Discount</strong></td>
                                <td><strong>{{$discount}}/-</strong></td>
                            </tr>
                            <tr>
-                               <td colspan="6"></td>
-                               <td><strong>GrandTotal</strong></td>
-                               <td><strong>{{$value->payable}}/-</strong></td>
-                           </tr>
 
-                   </table>
+                               <td><strong>GrandTotal</strong></td>
+                               <td><strong>{{$grandTotal}}/-</strong></td>
+                           </tr>
+                       </table>
+                   </div>
+
+
                </div>
            @else
                 <p> No Data Found ! </p>
            @endif
 
 
-               <div class="button-custom d-flex justify-content-center">
-                   <form action="{{route('mail', $value->invoice_number)}}" method="post">
-                       @csrf
-                      <button class="btn btn-lg btn-dark" type="submit"><i class="fa fa-envelope"></i>  Mail Invoice</button>
-                   </form>
-               </div>
+{{--               <div class="button-custom d-flex justify-content-center">--}}
+{{--                   <form action="{{route('mail', $value->invoice_number)}}" method="post">--}}
+{{--                       @csrf--}}
+{{--                      <button class="btn btn-lg btn-dark" type="submit"><i class="fa fa-envelope"></i>  Mail Invoice</button>--}}
+{{--                   </form>--}}
+{{--               </div>--}}
 
            </div>
        </div>

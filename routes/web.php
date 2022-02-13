@@ -20,7 +20,7 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
     Route::get('/', [IsAdmin::class, 'index'])->name('dashboard');
     Route::resource('/users', UserRegisterController::class);
 
-    Route::post('sendmail/invoice/{id}', [InvoiceController::class, 'mail_send'] )->name('mail');
+//    Route::post('sendmail/invoice/{id}', [InvoiceController::class, 'mail_send'] )->name('mail');
     Route::resource('/invoice', InvoiceController::class);
 
 
