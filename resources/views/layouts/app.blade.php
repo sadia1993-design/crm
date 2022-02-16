@@ -23,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Table -->
     <link type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link type="text/css" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css" rel="stylesheet">
     <!-- Perfect Scrollbar -->
     <link type="text/css" href="{{ asset('assets/vendor/perfect-scrollbar.css') }}" rel="stylesheet">
 
@@ -360,6 +361,8 @@ App Settings FAB
 
 <!-- table -->
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<!--datatable-->
+<script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 {{-- file type name --}}
 <script>
     $("input[type=file]").change(function() {
@@ -375,7 +378,9 @@ App Settings FAB
 {{-- Table --}}
 <script>
     $(document).ready(function() {
-        $('.data_table').DataTable();
+        $('.data_table').DataTable({
+            responsive: true
+        });
     });
 </script>
 {{-- Ck editor --}}

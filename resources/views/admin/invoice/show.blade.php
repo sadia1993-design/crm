@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Invoices</li>
-        </ol>
-    </nav>
-    <h1 class="m-0"><span>Invoice Details</span></h1>
+    Invoice Details
 @endsection
 
 @section('content')
