@@ -18,10 +18,11 @@
       border-bottom: 1px solid #e4e5e7;
   }
   .panel-body {
-      background: #413d3d;
+      background: #f2dede!important;
       padding: 10px 15px;
       margin: 10px;
       border-radius: 5px;
+      border: 1px solid #eab8b7!important;
   }
   .kan-ban-step-indicator {
       width: 38px;
@@ -61,7 +62,7 @@
 
                 @else
                 <div class="panel-body">
-                     <span style="color: white">No Task Found</span>
+                     <span style="color: darkblue">No Task Found</span>
                 </div>
             @endif
             </ul>
@@ -78,7 +79,7 @@
               @forelse($tasksProgress as $value)
                <li>
                   <div class="panel-body">
-                     <a style="color: white" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
+                     <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
                   </div>
                </li>
                @empty
@@ -98,7 +99,7 @@
               @forelse($tasksTesting as $value)
                <li>
                   <div class="panel-body">
-                     <a style="color: white" href="">Task 1</a>
+                     <a style="color: darkblue" href="">Task 1</a>
                   </div>
                </li>
                @empty
@@ -106,7 +107,7 @@
 
                 @else
                 <div class="panel-body">
-                     <a style="color: white" href="">No Task Found</a>
+                     <a style="color: darkblue" href="">No Task Found</a>
                 </div>
             @endif
 
@@ -125,7 +126,7 @@
               @forelse($tasksFeedback as $value)
                <li>
                   <div class="panel-body">
-                     <a style="color: white" href="">Task 1</a>
+                     <a style="color: darkblue" href="">Task 1</a>
                   </div>
                </li>
                @empty
@@ -150,7 +151,7 @@
               @forelse($tasksComplete as $value)
                <li>
                   <div class="panel-body">
-                     <a style="color: white" href="">Task 1</a>
+                     <a style="color: darkblue" href="">Task 1</a>
                   </div>
                </li>
                @empty
@@ -158,7 +159,7 @@
 
                 @else
                 <div class="panel-body">
-                     <a style="color: white" href="">No Task Found</a>
+                     <a style="color: darkblue" href="">No Task Found</a>
                 </div>
             @endif
             </ul>

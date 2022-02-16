@@ -67,7 +67,9 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        return view('admin.task_status.show', compact('id'));
+        $singleTasks = Tasks::with('project', 'Milestones', 'User')
+           ->where('id' , $id)->first();
+        return view('admin.task_status.show', compact('id', 'singleTasks'));
     }
 
     /**

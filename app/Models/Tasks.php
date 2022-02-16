@@ -28,10 +28,7 @@ class Tasks extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    public function timesheets()
-    {
-        return $this->hasMany(Timesheets::class);
-    }
+
 
 
 
