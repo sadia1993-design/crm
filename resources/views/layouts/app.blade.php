@@ -375,7 +375,7 @@ App Settings FAB
 {{-- Table --}}
 <script>
     $(document).ready(function() {
-        $('.data_table').DataTable()
+        $('.data_table').DataTable();
     });
 </script>
 {{-- Ck editor --}}

@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('page_title')
-<nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Invoice</li>
-        </ol>
-    </nav>
-    <div class="d-flex justify-content-between">
-      <h1 class="m-0"><span>Add Invoice</span></h1>
-      <a href="{{route('invoice.index')}}" class="btn btn-md btn-blue">Back to Invoice List</a>
+      Add Invoice
+
+@endsection
+
+@section('page_title_extra')
+    <div class="d-flex justify-content-end">
+        <a href="{{route('invoice.index')}}" class="btn btn-md btn-blue">Back to Invoice List</a>
     </div>
 @endsection
 
 @section('content')
+
+
 <div class="container-fluid wrapper">
 
     @if (session('success'))

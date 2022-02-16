@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
-   <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Invoices</li>
-        </ol>
-    </nav>
-    <h1 class="m-0"><span>Invoices</span></h1>
+    Invoices
 @endsection
 
 @section('content')
@@ -19,7 +13,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <table class="table datatable table-bordered table-hover"  width="100%">
+            <table class="table data_table table-bordered table-hover"  width="100%">
                 <thead>
                     <tr>
                         <th>##</th>
