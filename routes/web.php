@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IsAdmin;
 use App\Http\Controllers\IsCustomer;
@@ -22,6 +23,7 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
 
 //    Route::post('sendmail/invoice/{id}', [InvoiceController::class, 'mail_send'] )->name('mail');
     Route::resource('/invoice', InvoiceController::class);
+    Route::resource('/task_list', StatusController::class);
 
 
 });
@@ -45,3 +47,6 @@ Auth::routes(['register' => false]);
 Route::get('/', [IsAdmin::class, 'lead'])->name('lead');
 Route::get('/', function () {
 });
+
+
+

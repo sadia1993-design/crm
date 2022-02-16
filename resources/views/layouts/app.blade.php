@@ -14,212 +14,212 @@
 
     {{-- Ck editor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
-    <!-- Table -->
-
-    <link type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!-- Perfect Scrollbar -->
-    <link type="text/css" href="{{asset('assets/vendor/perfect-scrollbar.css')}}" rel="stylesheet">
-
-    <!-- datatable responsive css-->
-    <link type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet">
-
-    <!-- App CSS -->
-    <link type="text/css" href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-
-    <!-- Material Design Icons -->
-    <link type="text/css" href="{{asset('assets/css/vendor-material-icons.css')}}" rel="stylesheet">
-
-    <!-- Font Awesome FREE Icons -->
-    <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.css')}}" rel="stylesheet">
-
-    <!-- Toastr -->
-    <link type="text/css" href="{{asset('assets/css/toastr.min.css')}}" rel="stylesheet">
     <!-- jQuery -->
-    <script src="{{asset('assets/vendor/jquery.min.js')}}"></script>
-
+    <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Table -->
+    <link type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="{{ asset('assets/vendor/perfect-scrollbar.css') }}" rel="stylesheet">
 
-    <style>
-        .proposalInfo p{
-            margin-bottom: 0px;
-        }
-        #invoice-table thead{
-            padding: 12px !important;
-        }
-    </style>
+    <!-- Toastr -->
+    <link type="text/css" href="{{ asset('assets/css/toastr.min.css') }}" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
+
+    <!-- App CSS -->
+    <link type="text/css" href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="{{ asset('assets/css/vendor-material-icons.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome FREE Icons -->
+    <link type="text/css" href="{{ asset('assets/css/vendor-fontawesome-free.css') }}" rel="stylesheet">
+
 
 </head>
 
 <body class="layout-default">
 
-    <div class="preloader"></div>
+<div class="preloader"></div>
 
-    <!-- Header Layout -->
-    <div class="mdk-header-layout js-mdk-header-layout">
+<!-- Header Layout -->
+<div class="mdk-header-layout js-mdk-header-layout">
 
-        <!-- Header -->
+    <!-- Header -->
 
-        <div id="header" class="mdk-header js-mdk-header m-0" data-fixed>
-            <div class="mdk-header__content">
+    <div id="header" class="mdk-header js-mdk-header m-0" data-fixed>
+        <div class="mdk-header__content">
 
-                <div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark  pr-0" id="navbar" data-primary>
-                    <div class="container-fluid p-0">
+            <div class="navbar navbar-expand-sm navbar-main navbar-dark bg-dark  pr-0" id="navbar" data-primary>
+                <div class="container-fluid p-0">
 
-                        <!-- Navbar toggler -->
+                    <!-- Navbar toggler -->
 
-                        <button class="navbar-toggler navbar-toggler-right d-block d-lg-none" type="button"
+                    <button class="navbar-toggler navbar-toggler-right d-block d-lg-none" type="button"
                             data-toggle="sidebar">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                        <!-- Navbar Brand -->
-                        <a href="{{ url('/') }}" class="navbar-brand ">
-                            <span>CRM</span>
-                        </a>
+                    <!-- Navbar Brand -->
+                    <a href="{{ url('/') }}" class="navbar-brand ">
+                        <span>CRM</span>
+                    </a>
 
 
 
-                        <ul class="nav navbar-nav ml-auto d-none d-md-flex">
-                            <li class="nav-item dropdown">
-                                <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                    data-caret="false">
-                                    <i class="material-icons nav-icon navbar-notifications-indicator">notifications</i>
-                                </a>
-                                <div id="notifications_menu"
-                                    class="dropdown-menu dropdown-menu-right navbar-notifications-menu">
-                                    <div class="dropdown-item d-flex align-items-center py-2">
-                                        <span class="flex navbar-notifications-menu__title m-0">Notifications</span>
-                                        <a href="javascript:void(0)" class="text-muted"><small>Clear all</small></a>
-                                    </div>
-                                    <div class="navbar-notifications-menu__content" data-perfect-scrollbar>
-                                        <div class="py-2">
+                    <ul class="nav navbar-nav ml-auto d-none d-md-flex">
+                        <li class="nav-item dropdown">
+                            <a href="#notifications_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                               data-caret="false">
+                                <i class="material-icons nav-icon navbar-notifications-indicator">notifications</i>
+                            </a>
+                            <div id="notifications_menu"
+                                 class="dropdown-menu dropdown-menu-right navbar-notifications-menu">
+                                <div class="dropdown-item d-flex align-items-center py-2">
+                                    <span class="flex navbar-notifications-menu__title m-0">Notifications</span>
+                                    <a href="javascript:void(0)" class="text-muted"><small>Clear all</small></a>
+                                </div>
+                                <div class="navbar-notifications-menu__content" data-perfect-scrollbar>
+                                    <div class="py-2">
 
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                        <img src="{{asset('assets/images/avatar/admin.png')}}"
-                                                            alt="Avatar" class="avatar-img rounded-circle">
-                                                    </div>
-                                                </div>
-                                                <div class="flex">
-                                                    <a href="">A.Demian</a> left a comment on <a
-                                                        href="">FlowDash</a><br>
-                                                    <small class="text-muted">1 minute ago</small>
+                                        <div class="dropdown-item d-flex">
+                                            <div class="mr-3">
+                                                <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
+                                                    <img src="{{ asset('assets/images/256_daniel-gaffey-1060698-unsplash.jpg') }}"
+                                                         alt="Avatar" class="avatar-img rounded-circle">
                                                 </div>
                                             </div>
-                                            <div class="dropdown-item d-flex">
-                                                <div class="mr-3">
-                                                    <a href="#">
-                                                        <div class="avatar avatar-xs"
-                                                            style="width: 32px; height: 32px;">
+                                            <div class="flex">
+                                                <a href="">A.Demian</a> left a comment on <a
+                                                    href="">FlowDash</a><br>
+                                                <small class="text-muted">1 minute ago</small>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-item d-flex">
+                                            <div class="mr-3">
+                                                <a href="#">
+                                                    <div class="avatar avatar-xs"
+                                                         style="width: 32px; height: 32px;">
                                                             <span class="avatar-title bg-purple rounded-circle"><i
                                                                     class="material-icons icon-16pt">person_add</i></span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="flex">
-                                                    New user <a href="#">Peter Parker</a> signed up.<br>
-                                                    <small class="text-muted">1 hour ago</small>
-                                                </div>
+                                                    </div>
+                                                </a>
                                             </div>
-
+                                            <div class="flex">
+                                                New user <a href="#">Peter Parker</a> signed up.<br>
+                                                <small class="text-muted">1 hour ago</small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="javascript:void(0);"
-                                        class="dropdown-item text-center navbar-notifications-menu__footer">View All</a>
-                                </div>
-                            </li>
-                        </ul>
 
-                        <ul class="nav navbar-nav d-none d-sm-flex border-left navbar-height align-items-center">
-                            <li class="nav-item dropdown">
-                                <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                    data-caret="false">
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0);"
+                                   class="dropdown-item text-center navbar-notifications-menu__footer">View All</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav d-none d-sm-flex border-left navbar-height align-items-center">
+                        <li class="nav-item dropdown">
+                            <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                               data-caret="false">
                                     <span class="mr-1 d-flex-inline">
                                         <span class="text-light">{{ Auth::user()->name }}</span>
                                     </span>
-                                    <img src="{{asset('assets/images/avatar/admin.png')}}" class="rounded-circle" width="32"
-                                        alt="Frontted">
-                                </a>
-                                <div id="account_menu" class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-item-text dropdown-item-text--lh">
-                                        <div><strong>{{ Auth::user()->name }}</strong></div>
-                                        <div class="text-muted">{{ Auth::user()->email }}</div>
-                                    </div>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{route('dashboard')}}"><i class="material-icons">dvr</i>
-                                        Dashboard</a>
-                                    <a class="dropdown-item" href="profile.html"><i
-                                            class="material-icons">account_circle</i> My profile</a>
-                                    <a class="dropdown-item" href="edit-account.html"><i class="material-icons">edit</i>
-                                        Edit account</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" ><i class="material-icons">exit_to_app</i>
-                                        {{ __('Logout') }}</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
+                                <img src="{{ asset('assets/images/avatar/admin.png') }}" class="rounded-circle"
+                                     width="32" alt="Frontted">
+                            </a>
+                            <div id="account_menu" class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-item-text dropdown-item-text--lh">
+                                    <div><strong>{{ Auth::user()->name }}</strong></div>
+                                    <div class="text-muted">{{ Auth::user()->email }}</div>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('dashboard') }}"><i
+                                        class="material-icons">dvr</i>
+                                    Dashboard</a>
+                                <a class="dropdown-item" href="profile.html"><i
+                                        class="material-icons">account_circle</i> My profile</a>
+                                <a class="dropdown-item" href="edit-account.html"><i
+                                        class="material-icons">edit</i>
+                                    Edit account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
+                                        class="material-icons">exit_to_app</i>
+                                    {{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
 
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- // END Header -->
+
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content">
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+            <div class="mdk-drawer-layout__content page">
+
+                <div class="container-fluid page__heading-container">
+                    <div class="page__heading d-flex align-items-end">
+                        <div class="flex">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item " aria-current="page">@yield('page_title')</li>
+                                </ol>
+                            </nav>
+                            <h1 class="m-0">@yield('page_title')</h1>
+                            @yield('page_title_extra')
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="container-fluid page__container">
+
+                    <div class="row card-group-row">
+
+                        <div class="col-lg-12 col-md-12 ">
+                            @yield('content')
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
 
-        <!-- // END Header -->
-
-        <!-- Header Layout Content -->
-        <div class="mdk-header-layout__content">
-
-            <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
-                <div class="mdk-drawer-layout__content page">
-
-                    <div class="container-fluid page__heading-container">
-                        <div class="page__heading d-flex align-items-end">
-                            <div class="flex">
-                                @yield('page_title')
-                            </div>
-                        </div>
-                    </div>
-
-                    @yield('page_title_extra')
-                    <div class="container-fluid page__container">
-
-                        <div class="row card-group-row">
-
-                            <div class="col-lg-12 col-md-12 ">
-                                @yield('content')
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- // END drawer-layout__content -->
-
+            <!-- // END drawer-layout__content -->
+            @if (auth()->user()->role == 'admin')
                 <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="start">
                     <div class="mdk-drawer__content">
                         <div class="sidebar sidebar-light sidebar-left sidebar-p-t" data-perfect-scrollbar>
                             <div class="sidebar-heading">Menu</div>
                             <ul class="sidebar-menu">
-                                <li class="sidebar-menu-item active open">
+                                <li class="sidebar-menu-item">
                                     <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
                                         <span class="sidebar-menu-text">Dashboards</span>
                                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                     </a>
-                                    <ul class="sidebar-submenu collapse show " id="dashboards_menu">
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('dashboard')}}">
+                                    <ul class="sidebar-submenu collapse  " id="dashboards_menu">
+                                        <li class="sidebar-menu-item ">
+                                            <a class="sidebar-menu-button" href="{{ route('dashboard') }}">
                                                 <span class="sidebar-menu-text">Dashboard</span>
                                             </a>
                                         </li>
@@ -228,25 +228,6 @@
                                 </li>
 
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#customer">
-                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                        <span class="sidebar-menu-text">Customer</span>
-                                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                    </a>
-                                    <ul class="sidebar-submenu collapse show " id="customer">
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('customers.create')}}">
-                                                <span class="sidebar-menu-text">Add Customer</span>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-
-
-                                 @if ( Auth()->user()->role == 'admin')
-
-                                 <li class="sidebar-menu-item">
                                     <a class="sidebar-menu-button" data-toggle="collapse" href="#invoice">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
                                         <span class="sidebar-menu-text">Invoice</span>
@@ -260,46 +241,69 @@
                                         </li>
 
                                     </ul>
-                                   </li>
+                                </li>
 
-                                   <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#users">
+                                <li class="sidebar-menu-item ">
+                                    <a class="sidebar-menu-button"  href="{{route('task_list.index')}}">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                        <span class="sidebar-menu-text">Users</span>
+                                        <span class="sidebar-menu-text">Task List</span>
+                                    </a>
+
+                                </li>
+
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#user">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                        <span class="sidebar-menu-text">User</span>
                                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                     </a>
-                                    <ul class="sidebar-submenu collapse show " id="users">
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('users.index')}}">
-                                                <span class="sidebar-menu-text">View Users</span>
+                                    <ul class="sidebar-submenu collapse  " id="user">
+                                        <li class="sidebar-menu-item ">
+                                            <a class="sidebar-menu-button" href="{{ route('users.index') }}">
+                                                <span class="sidebar-menu-text">User List</span>
                                             </a>
                                         </li>
-
                                     </ul>
-                                   </li>
-                                 @else
-                               <li class="sidebar-menu-item ">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#Proposal">
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            @else
+
+                <div class="mdk-drawer  js-mdk-drawer" id="default-drawer" data-align="start">
+                    <div class="mdk-drawer__content">
+                        <div class="sidebar sidebar-light sidebar-left sidebar-p-t" data-perfect-scrollbar>
+                            <div class="sidebar-heading">Menu</div>
+                            <ul class="sidebar-menu">
+
+
+                                <li class="sidebar-menu-item  ">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#proposal">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                        <span class="sidebar-menu-text">Proposal</span>
+                                        <span class="sidebar-menu-text">Proposals</span>
                                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                     </a>
-                                    <ul class="sidebar-submenu collapse show " id="Proposal">
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('proposals.status')}}">
+
+                                    <ul class="sidebar-submenu collapse  ">
+                                        <li class="sidebar-menu-item ">
+                                            <a class="sidebar-menu-button"
+                                               href="{{ route('proposals.index') }}">
+                                                <span class="sidebar-menu-text">View All Proposals</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-item ">
+                                            <a class="sidebar-menu-button" href="{{ route('proposals.status') }}">
                                                 <span class="sidebar-menu-text">View Proposal Status</span>
                                             </a>
                                         </li>
-                                        <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('proposals.index')}}">
-                                                <span class="sidebar-menu-text">view All Proposals</span>
-                                            </a>
-                                        </li>
-
                                     </ul>
                                 </li>
-                                 @endif
-
 
                             </ul>
 
@@ -309,117 +313,107 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- // END drawer-layout -->
+            @endif
 
         </div>
-        <!-- // END header-layout__content -->
+        <!-- // END drawer-layout -->
 
     </div>
-    <!-- // END header-layout -->
+    <!-- // END header-layout__content -->
 
-    App Settings FAB
-    <div id="app-settings" style="display: none;">
-        <app-settings layout-active="default" :layout-location="{
+</div>
+<!-- // END header-layout -->
+
+App Settings FAB
+<div id="app-settings" style="display: none;">
+    <app-settings layout-active="default" :layout-location="{
           'default': 'index.html',
           'fixed': 'fixed-dashboard.html',
           'fluid': 'fluid-dashboard.html',
           'mini': 'mini-dashboard.html'
         }"></app-settings>
-    </div>
+</div>
 
 
 
-    <!-- Bootstrap -->
-    <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/bootstrap.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('assets/vendor/popper.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap.min.js') }}"></script>
 
-    <!-- Perfect Scrollbar -->
-    <script src="{{asset('assets/vendor/perfect-scrollbar.min.js')}}"></script>
+<!-- Perfect Scrollbar -->
+<script src="{{ asset('assets/vendor/perfect-scrollbar.min.js') }}"></script>
 
-    <!-- DOM Factory -->
-    <script src="{{asset('assets/vendor/dom-factory.js')}}"></script>
+<!-- DOM Factory -->
+<script src="{{ asset('assets/vendor/dom-factory.js') }}"></script>
 
-    <!-- MDK -->
-    <script src="{{asset('assets/vendor/material-design-kit.js')}}"></script>
+{{-- toastr --}}
+<script src="{{ asset('assets/vendor/toastr.min.js') }}"></script>
 
-    {{-- toastr  --}}
-    <script src="{{asset('assets/vendor/toastr.min.js')}}"></script>
+<!-- MDK -->
+<script src="{{ asset('assets/vendor/material-design-kit.js') }}"></script>
 
+<!-- App -->
+<script src="{{ asset('assets/js/script.js') }}"></script>
 
-    <!-- App Settings (safe to remove) -->
-    <script src="{{asset('assets/js/app-settings.js')}}"></script>
+<!-- App Settings (safe to remove) -->
+<script src="{{ asset('assets/js/app-settings.js') }}"></script>
 
-    <!-- App -->
-    <script src="{{asset('assets/js/script.js')}}"></script>
-
-    <!-- table -->
-
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-     <!-- datatable responsive js-->
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-
-    {{-- file type name --}}
-    <script>
-        $("input[type=file]").change(function () {
+<!-- table -->
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+{{-- file type name --}}
+<script>
+    $("input[type=file]").change(function() {
         var fieldVal = $(this).val();
-
         // Change the node's value by removing the fake path (Chrome)
         fieldVal = fieldVal.replace("C:\\fakepath\\", "");
-
         if (fieldVal != undefined || fieldVal != "") {
             $(this).next(".custom-file-label").attr('data-content', fieldVal);
             $(this).next(".custom-file-label").text(fieldVal);
         }
     });
-    </script>
-    {{-- Table --}}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.datatable').DataTable( {
-					responsive: true,
-                    serverSide: false,
-				} );
-
-
-
-        });
-    </script>
-    {{-- Ck editor --}}
-    <script>
-        ClassicEditor
-                .create( document.querySelector( '.ckEditor' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.log( error );
-                } );
 </script>
-
+{{-- Table --}}
 <script>
-    $(document).ready(function () {
-            $('.toast').toast('show');
-
-            toastr.options = {
-                "closeButton": true,
-                "debug": true,
-                "newestOnTop": true,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
+    $(document).ready(function() {
+        $('.data_table').DataTable()
     });
 </script>
+{{-- Ck editor --}}
+<script>
+    ClassicEditor
+        .create(document.querySelector('.ckEditor'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.toast').toast('show');
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    });
+</script>
+
 
 
 </body>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page_title')
+@section('page_title_extra')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
