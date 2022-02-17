@@ -5,13 +5,14 @@
 
     @section('content')
     <style type="text/css">
-      .box {
-        width: 290px;
-        background: #e3e8ee;
-        margin-right: 10px;
-        min-height: 500px;
-        position: relative;
-    }
+        .box {
+            width: 365px;
+            background: #e3e8ee;
+            margin-right: 10px;
+            min-height: 500px;
+            position: relative;
+            float: left;
+        }
     .panel-heading-bg {
       padding: 9px;
       position: relative;
@@ -33,139 +34,158 @@
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       z-index: 39;
-      background: url(../assets/images/stage.svg) no-repeat top left;
+      background: url(../../assets/images/stage.svg) no-repeat top left;
   }
     </style>
 
     <div class="container-fluid wrapper">
-      <div class="d-flex table-responsive">
-
-
-
-          <div class="box1 box">
-             <div class="panel-heading-bg" style="background:#989898;border-color:#989898;color:#fff; ?>" >
-                <div class="kan-ban-step-indicator"></div>
-                <span class="heading">Not Started</span>
-
+        <div class="card">
+            <div class="card-body">
+                <a href="" class="btn btn-info btn-lg">Show Tasks List</a>
             </div>
-            <ul  style="list-style: none;margin: 0;padding: 0" >
+        </div>
+      <div class="table-responsive">
 
-            @if(count($tasksPending) > 0)
-              @forelse($tasksPending as $value)
-               <li>
-                  <div class="panel-body">
-                     <a style="color: white" href="">Task 1</a>
-                  </div>
-               </li>
-               @empty
-               @endforelse
+         <table>
+             <tr>
+                 <td>
+                     <div class="box1 box ">
+                         <div class="panel-heading-bg" style="background:#989898;border-color:#989898;color:#fff; ?>" >
+                             <div class="kan-ban-step-indicator"></div>
+                             <span class="heading">Not Started</span>
 
-                @else
-                <div class="panel-body">
-                     <span style="color: darkblue">No Task Found</span>
-                </div>
-            @endif
-            </ul>
-          </div>
+                         </div>
+                         <ul  style="list-style: none;margin: 0;padding: 0" >
 
-          <div class="box2 box">
-             <div class="panel-heading-bg" style="background:#03A9F4;border-color:#03A9F4;color:#fff; ?>" >
-                <div class="kan-ban-step-indicator"></div>
-                <span class="heading">In Progress</span>
+                             @if(count($tasksPending) > 0)
+                                 @forelse($tasksPending as $value)
+                                     <li>
+                                         <div class="panel-body">
+                                             <a style="color: white" href="">Task 1</a>
+                                         </div>
+                                     </li>
+                                 @empty
+                                 @endforelse
 
-            </div>
-            <ul  style="list-style: none; margin: 0;padding: 0" >
+                             @else
+                                 <div class="panel-body">
+                                     <span style="color: darkblue">No Task Found</span>
+                                 </div>
+                             @endif
+                         </ul>
+                     </div>
+                 </td>
+                 <td>
+                     <div class="box2 box">
+                         <div class="panel-heading-bg" style="background:#03A9F4;border-color:#03A9F4;color:#fff; ?>" >
+                             <div class="kan-ban-step-indicator"></div>
+                             <span class="heading">In Progress</span>
 
-              @forelse($tasksProgress as $value)
-               <li>
-                  <div class="panel-body">
-                     <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
-                  </div>
-               </li>
-               @empty
-               @endforelse
-            </ul>
-          </div>
+                         </div>
+                         <ul  style="list-style: none; margin: 0;padding: 0" >
 
-          <div class="box3 box">
-             <div class="panel-heading-bg" style="background:#2d2d2d;border-color:#2d2d2d;color:#fff; ?>" >
-                <div class="kan-ban-step-indicator"></div>
-                <span class="heading">Testing</span>
+                             @if(count($tasksProgress) > 0 )
+                                 @forelse($tasksProgress as $value)
+                                     <li>
+                                         <div class="panel-body">
+                                             <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
+                                         </div>
+                                     </li>
+                                 @empty
+                                 @endforelse
 
-            </div>
-            <ul  style="list-style: none;margin: 0;padding: 0" >
+                             @else
+                                 <div class="panel-body">
+                                     <span style="color: darkblue">No Task Found</span>
+                                 </div>
+                             @endif
+                         </ul>
+                     </div>
+                 </td>
+                 <td>
+                     <div class="box3 box">
+                         <div class="panel-heading-bg" style="background:#2d2d2d;border-color:#2d2d2d;color:#fff; ?>" >
+                             <div class="kan-ban-step-indicator"></div>
+                             <span class="heading">Testing</span>
 
-              @if(count($tasksTesting) > 0)
-              @forelse($tasksTesting as $value)
-               <li>
-                  <div class="panel-body">
-                     <a style="color: darkblue" href="">Task 1</a>
-                  </div>
-               </li>
-               @empty
-               @endforelse
+                         </div>
+                         <ul  style="list-style: none; margin: 0;padding: 0" >
 
-                @else
-                <div class="panel-body">
-                     <a style="color: darkblue" href="">No Task Found</a>
-                </div>
-            @endif
+                             @if(count($tasksTesting) > 0 )
+                                 @forelse($tasksTesting as $value)
+                                     <li>
+                                         <div class="panel-body">
+                                             <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
+                                         </div>
+                                     </li>
+                                 @empty
+                                 @endforelse
 
+                             @else
+                                 <div class="panel-body">
+                                     <span style="color: darkblue">No Task Found</span>
+                                 </div>
+                             @endif
+                         </ul>
+                     </div>
+                 </td>
+                 <td>
+                     <div class="box4 box">
+                         <div class="panel-heading-bg" style="background:#adca65;border-color:#adca65;color:#fff; ?>" >
+                             <div class="kan-ban-step-indicator"></div>
+                             <span class="heading">Feedback</span>
 
-            </ul>
-          </div>
+                         </div>
+                         <ul  style="list-style: none; margin: 0;padding: 0" >
 
-          <div class="box4 box">
-             <div class="panel-heading-bg" style="background:#adca65;border-color:#adca65;color:#fff; ?>" >
-                <div class="kan-ban-step-indicator"></div>
-                <span class="heading">Feedback</span>
+                             @if(count($tasksFeedback) > 0 )
+                                 @forelse($tasksFeedback as $value)
+                                     <li>
+                                         <div class="panel-body">
+                                             <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
+                                         </div>
+                                     </li>
+                                 @empty
+                                 @endforelse
 
-            </div>
-            <ul  style="list-style: none;margin: 0;padding: 0" >
-               @if(count($tasksFeedback) > 0)
-              @forelse($tasksFeedback as $value)
-               <li>
-                  <div class="panel-body">
-                     <a style="color: darkblue" href="">Task 1</a>
-                  </div>
-               </li>
-               @empty
-               @endforelse
+                             @else
+                                 <div class="panel-body">
+                                     <span style="color: darkblue">No Task Found</span>
+                                 </div>
+                             @endif
+                         </ul>
+                     </div>
+                 </td>
+                 <td>
+                     <div class="box5 box">
+                         <div class="panel-heading-bg" style="background:#84c529;border-color:#84c529;color:#fff; ?>" >
+                             <div class="kan-ban-step-indicator"></div>
+                             <span class="heading">Complete</span>
 
-                @else
-                <div class="panel-body">
-                     <a style="color: white" href="">No Task Found</a>
-                </div>
-            @endif
-            </ul>
-          </div>
+                         </div>
+                         <ul  style="list-style: none; margin: 0;padding: 0" >
 
-           <div class="box5 box">
-             <div class="panel-heading-bg" style="background:#84c529;border-color:#84c529;color:#fff; ?>" >
-                <div class="kan-ban-step-indicator"></div>
-                <span class="heading">Complete</span>
+                             @if(count($tasksComplete) > 0 )
+                                 @forelse($tasksComplete as $value)
+                                     <li>
+                                         <div class="panel-body">
+                                             <a style="color: darkblue" href="{{route('task_list.show', $value->id)}}">{{ $value->subject }}</a>
+                                         </div>
+                                     </li>
+                                 @empty
+                                 @endforelse
 
-            </div>
-            <ul  style="list-style: none;margin: 0;padding: 0" >
-               @if(count($tasksComplete) > 0)
-              @forelse($tasksComplete as $value)
-               <li>
-                  <div class="panel-body">
-                     <a style="color: darkblue" href="">Task 1</a>
-                  </div>
-               </li>
-               @empty
-               @endforelse
+                             @else
+                                 <div class="panel-body">
+                                     <span style="color: darkblue">No Task Found</span>
+                                 </div>
+                             @endif
+                         </ul>
+                     </div>
+                 </td>
+             </tr>
 
-                @else
-                <div class="panel-body">
-                     <a style="color: darkblue" href="">No Task Found</a>
-                </div>
-            @endif
-            </ul>
-          </div>
-
-
+         </table>
 
       </div>
     </div>
