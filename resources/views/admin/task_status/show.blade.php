@@ -146,9 +146,9 @@
     <div class="modal fade" id="statistics" data-backdrop="false" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Task Statistics</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header" style="background: linear-gradient(to right,#226faa 0,#2989d8 37%,#72c0d3 100%);">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel">Task Statistics</h5>
+                    <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" style="background: linear-gradient(to right,#226faa 0,#2989d8 37%,#72c0d3 100%);" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
