@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page_title')
-    <span>View All Proposals</span>
+  View All Proposals
 @endsection
 @section('content')
 {{-- Table starts from here --}}

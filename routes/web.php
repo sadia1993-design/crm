@@ -22,8 +22,10 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
     Route::resource('/users', UserRegisterController::class);
 
 //    Route::post('sendmail/invoice/{id}', [InvoiceController::class, 'mail_send'] )->name('mail');
+
     Route::resource('/invoice', InvoiceController::class);
     Route::resource('/task_list', StatusController::class);
+
 
 
 });

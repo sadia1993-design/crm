@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Invoice;
 use App\Models\customers;
 use App\Models\Item;
+use Illuminate\Console\Commands\SendRecurringNotification;
 
 class InvoiceController extends Controller
 {
@@ -183,6 +184,14 @@ class InvoiceController extends Controller
 
         \Mail::to("$user")->send(new \App\Mail\InvoiceMail($details));
         return redirect()->back()->with('success', 'Mail Sent Successfully');
+    }
+
+    public function RecurringNotification(){
+        handle();
+        $invoices = Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
+            ->where('invoice_type', 'recurring')
+            ->get();
+        return view('dashboard', compact('invoices'));
     }
 
 }

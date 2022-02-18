@@ -283,24 +283,37 @@
                             <div class="sidebar-heading">Menu</div>
                             <ul class="sidebar-menu">
 
-
-                                <li class="sidebar-menu-item  ">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#proposal">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                        <span class="sidebar-menu-text">Proposals</span>
+                                        <span class="sidebar-menu-text">Dashboards</span>
                                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                     </a>
-
-                                    <ul class="sidebar-submenu collapse  ">
+                                    <ul class="sidebar-submenu collapse  " id="dashboards_menu">
                                         <li class="sidebar-menu-item ">
-                                            <a class="sidebar-menu-button"
-                                               href="{{ route('proposals.index') }}">
-                                                <span class="sidebar-menu-text">View All Proposals</span>
+                                            <a class="sidebar-menu-button" href="{{ route('customer_panel') }}">
+                                                <span class="sidebar-menu-text">Dashboard</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#proposals">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                        <span class="sidebar-menu-text">Proposal</span>
+                                        <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                    </a>
+                                    <ul class="sidebar-submenu collapse  " id="proposals">
+                                        <li class="sidebar-menu-item ">
+                                            <a class="sidebar-menu-button" href="{{ route('proposals.index') }}">
+                                                <span class="sidebar-menu-text">View All Proposal</span>
                                             </a>
                                         </li>
                                         <li class="sidebar-menu-item ">
                                             <a class="sidebar-menu-button" href="{{ route('proposals.status') }}">
-                                                <span class="sidebar-menu-text">View Proposal Status</span>
+                                                <span class="sidebar-menu-text">View  Proposal Status</span>
                                             </a>
                                         </li>
                                     </ul>

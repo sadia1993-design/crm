@@ -84,8 +84,10 @@
                                 @endif
                             </div>
                             <div class="form-group col-md-6 recurring-block" style="display: none;">
-                                <label for="recurring " ></label><br>
+                                <label for="recurring " ></label>
                                 <input type="text" required name="recurring" id="recurring" class="form-control recurring " style="margin-top: 7px" placeholder="type(in days)">
+
+
                             </div>
                         </div>
                     </div>
