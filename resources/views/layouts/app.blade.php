@@ -229,14 +229,14 @@
                                 </li>
 
                                 <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#invoice">
+                                    <a class="sidebar-menu-button" data-toggle="collapse" href="#adinvoice">
                                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
                                         <span class="sidebar-menu-text">Invoice</span>
                                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                     </a>
-                                    <ul class="sidebar-submenu collapse show " id="invoice">
+                                    <ul class="sidebar-submenu collapse show " id="adinvoice">
                                         <li class="sidebar-menu-item active">
-                                            <a class="sidebar-menu-button" href="{{route('invoice.index')}}">
+                                            <a class="sidebar-menu-button" href="{{url('admin/invoice')}}">
                                                 <span class="sidebar-menu-text">View Invoice</span>
                                             </a>
                                         </li>

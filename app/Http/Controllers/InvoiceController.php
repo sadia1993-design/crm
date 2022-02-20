@@ -16,6 +16,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
+
         if( auth()->user()->role == 'admin'){
             $invoices = Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
                 ->orderBy('invoice_number', 'desc')

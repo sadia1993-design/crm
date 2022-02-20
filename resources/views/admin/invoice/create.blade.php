@@ -6,7 +6,7 @@
 
 @section('page_title_extra')
     <div class="d-flex justify-content-end">
-        <a href="{{route('invoice.index')}}" class="btn btn-md btn-blue">Back to Invoice List</a>
+        <a href="{{url('admin/invoice')}}" class="btn btn-md btn-blue">Back to Invoice List</a>
     </div>
 @endsection
 
@@ -24,7 +24,7 @@
         </div>
 
     @endif
-           <form action="{{route('invoice.store')}}" class="needs-validation" novalidate method="post">
+           <form action="{{url('admin/invoice/store')}}" class="needs-validation" novalidate method="post">
                 @csrf
 
 
@@ -162,20 +162,6 @@
                 </div>
            </form>
 
-{{--         @php--}}
-
-
-{{--    echo date("Y-m-d", strtotime(j));--}}
-{{--                 $currentDate =  date("d");--}}
-
-{{--    if ($currentDate == 28){--}}
-{{--        echo $currentDate;--}}
-{{--    }--}}
-{{--    else{--}}
-{{--        echo $currentDate;--}}
-{{--    }--}}
-
-{{--         @endphp--}}
 
 </div>
 

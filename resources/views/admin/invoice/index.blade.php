@@ -9,7 +9,7 @@
     @if(auth()->user()->role == 'admin')
     <div class="card mb-4">
         <div class="card-body pt-3 pb-3">
-            <a href="{{route('invoice.create')}}" class="btn btn-md btn-blue"><i class="fas fa-plus"></i> New Invoice</a>
+            <a href="{{url('admin/invoice/create')}}" class="btn btn-md btn-blue"><i class="fas fa-plus"></i> New Invoice</a>
         </div>
     </div>
 
@@ -49,7 +49,6 @@
 
                                 @if(auth()->user()->role == 'admin')
                                     <a href="javascript:;" class="delete-invoice btn btn-sm btn-danger" data-id="{{$invoice->invoice_number}}"><i class="fas fa-eye"></i> Delete</a>
-                                    <a href="{{route('invoice.show', $invoice->invoice_number)}}" class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
                                 @endif
                             </td>
                         </tr>
