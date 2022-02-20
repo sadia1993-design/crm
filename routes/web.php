@@ -41,6 +41,8 @@ Route::Group(['middleware' => ['ChkCustomer']], function () {
     Route::get('proposal/pending', [ProposalApproveController::class, 'pending'])->name('proposals.pending');
     Route::get('proposal/approved', [ProposalApproveController::class, 'approved'])->name('proposals.approved');
     Route::get('proposal/declined', [ProposalApproveController::class, 'declined'])->name('proposals.declined');
+
+    Route::resource('/invoice', InvoiceController::class);
 });
 
 

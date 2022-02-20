@@ -6,11 +6,14 @@
 @section('content')
 {{-- Table starts from here --}}
 <div class="container-fluid wrapper">
+    @if(auth()->user()->role == 'admin')
     <div class="card mb-4">
         <div class="card-body pt-3 pb-3">
             <a href="{{route('invoice.create')}}" class="btn btn-md btn-blue"><i class="fas fa-plus"></i> New Invoice</a>
         </div>
     </div>
+
+    @endif
     <div class="card">
         <div class="card-body">
             <table class="table data_table table-bordered table-hover"  width="100%">

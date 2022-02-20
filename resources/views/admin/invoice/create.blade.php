@@ -162,6 +162,21 @@
                 </div>
            </form>
 
+{{--         @php--}}
+
+
+{{--    echo date("Y-m-d", strtotime(j));--}}
+{{--                 $currentDate =  date("d");--}}
+
+{{--    if ($currentDate == 28){--}}
+{{--        echo $currentDate;--}}
+{{--    }--}}
+{{--    else{--}}
+{{--        echo $currentDate;--}}
+{{--    }--}}
+
+{{--         @endphp--}}
+
 </div>
 
 <script>
@@ -182,6 +197,8 @@
                $(this).val(intValue)
            }
         });
+
+
 
         $('.invoice-type').on('change', function() {
             var selected = $(this).val();
