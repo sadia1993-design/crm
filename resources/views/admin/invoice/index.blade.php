@@ -45,7 +45,7 @@
                            @endif
                            <td><span class="  btn btn-sm btn-outline-dark">{{$invoice->status}}</span></td>
                             <td>
-                                <a href="{{route('invoice.show', $invoice->invoice_number)}}"  class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
+                                <a href="{{url('admin/invoice', $invoice->invoice_number)}}"  class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
 
                                 @if(auth()->user()->role == 'admin')
                                     <a href="javascript:;" class="delete-invoice btn btn-sm btn-danger" data-id="{{$invoice->invoice_number}}"><i class="fas fa-eye"></i> Delete</a>
@@ -76,7 +76,7 @@
             }
             var thisAttr = $(this)
             var id = thisAttr.data('id');
-            var url = '{{ route("invoice.destroy", ":id") }}';
+            var url = '{{ url("admin/invoice", ":id") }}';
             url = url.replace(':id', id);
 
             $.ajax({

@@ -148,6 +148,7 @@ class InvoiceController extends Controller
     public function show($id)
     {
 
+
         $invoices = Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
             ->where('invoice_number', $id)
             ->get();
@@ -189,6 +190,7 @@ class InvoiceController extends Controller
      */
     public function destroy($id)
     {
+
         try{
             $invoices = Invoice::where('invoice_number', $id)
                 ->get();
