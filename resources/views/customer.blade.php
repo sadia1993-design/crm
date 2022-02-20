@@ -19,9 +19,9 @@
         @endphp
 
 
-        <div class="alert alert-warning alert-dismissible" role="alert">
+        <div class="alert alert-secondary alert-dismissible" role="alert">
             New  recurring invoice <strong>({{$value->invoice_number}})</strong> from due date <strong>({{$value->due_date}})</strong> was created for you!! <br> Pay within
-            <strong>{{$recurringPay}}</strong>
+            <strong>{{$recurringPay}} <br> Total Payable: {{$value->payable}}</strong>
             <a href="{{route('invoice.show', $value->invoice_number)}}" style="margin-left: 5px" class="btn btn-sm btn-outline-blue"><i class="fas fa-eye"></i></a>
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>

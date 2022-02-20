@@ -24,7 +24,9 @@
                         <th class="col-md-2">Total Payable Amount</th>
                         <th >Date</th>
                         <th >Due date</th>
-                        <th >Customer</th>
+                        @if(auth()->user()->role == 'admin')
+                            <th >Customer</th>
+                        @endif
                         <th >Status</th>
                         <th >Action</th>
                     </tr>
@@ -38,11 +40,17 @@
                             <td>{{$invoice->total}}</td>
                             <td>{{$invoice->date}}</td>
                             <td>{{$invoice->due_date}}</td>
-                            <td>{{$invoice->customer}}</td>
-                            <td><span class="  btn btn-sm btn-outline-dark">{{$invoice->status}}</span></td>
+                           @if(auth()->user()->role == 'admin')
+                               <td >{{$invoice->customer}}</td>
+                           @endif
+                           <td><span class="  btn btn-sm btn-outline-dark">{{$invoice->status}}</span></td>
                             <td>
-                                <a href="{{route('invoice.show', $invoice->invoice_number)}}" class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
-                                <a href="javascript:;" class="delete-invoice btn btn-sm btn-danger" data-id="{{$invoice->invoice_number}}"><i class="fas fa-eye"></i> Delete</a>
+                                <a href="{{route('invoice.show', $invoice->invoice_number)}}"  class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
+
+                                @if(auth()->user()->role == 'admin')
+                                    <a href="javascript:;" class="delete-invoice btn btn-sm btn-danger" data-id="{{$invoice->invoice_number}}"><i class="fas fa-eye"></i> Delete</a>
+                                    <a href="{{route('invoice.show', $invoice->invoice_number)}}" class="btn btn-sm btn-blue"><i class="fas fa-eye"></i> View</a>
+                                @endif
                             </td>
                         </tr>
                     @empty
@@ -60,6 +68,9 @@
 
 <script type="text/javascript">
     $(document).ready( function (){
+
+
+
         $(document).on('click', '.delete-invoice', function (){
             if(!confirm('Are you sure to delete this invoice?')){
                 return false;
