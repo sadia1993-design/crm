@@ -3,7 +3,7 @@
 use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IsAdmin;
-use App\Http\Controllers\IsCustomer;
+use App\Http\Controllers\IsCustomerController;
 use App\Http\Controllers\Customers;
 use App\Http\Controllers\UserRegisterController;
 use App\Http\Controllers\InvoiceController;
@@ -31,7 +31,7 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
 });
 
 Route::Group(['middleware' => ['ChkCustomer']], function () {
-    Route::get('/customer_panel', [IsCustomer::class, 'index'])->name('customer_panel');
+    Route::get('/customer_panel', [IsCustomerController::class, 'index'])->name('customer_panel');
 
     Route::get('/proposalDownload/{id}', [ProposalApproveController::class, 'printToPdf'])->name('proposalDownload');
 

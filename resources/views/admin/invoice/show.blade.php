@@ -48,6 +48,14 @@
                                 <td><strong>Type</strong></td>
                                 <td>{{$invoices[0]->invoice_type}}</td>
                             </tr>
+
+                                @if ($invoices[0]->invoice_type == 'recurring')
+                                <tr>
+                                    <td><strong>Interval</strong></td>
+                                    <td>{{$invoices[0]->interval}} days</td>
+                                </tr>
+                                @endif
+
                         </table>
                     </div>
 
