@@ -17,6 +17,7 @@
     <!-- jQuery -->
     <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
@@ -29,8 +30,6 @@
 
     <!-- Toastr -->
     <link type="text/css" href="{{ asset('assets/css/toastr.min.css') }}" rel="stylesheet">
-    <!-- jQuery -->
-    <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
 
     <!-- App CSS -->
     <link type="text/css" href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -392,6 +391,9 @@ App Settings FAB
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <!--datatable-->
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+
+
+
 {{-- file type name --}}
 <script>
     $("input[type=file]").change(function() {

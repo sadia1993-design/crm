@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
 // use App\Http\Requests\TasksRequest;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class StatusController extends Controller
 {
