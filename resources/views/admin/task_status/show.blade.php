@@ -5,7 +5,6 @@
 
 @section('content')
 
-
     <style>
         .task-single-col-right {
             background-image: linear-gradient(to left bottom, #b6c3d6, #b4c8dc, #b0cce1, #add1e5, #a9d6e8);
@@ -172,7 +171,9 @@
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-    <script>
+    <script type="text/javascript">
+
+
         $(document).ready( function (){
 
             $(document).on('click', '.statistics', function (){
@@ -180,6 +181,8 @@
                 document.getElementById('statId').innerText =  id;
             })
 
+            //make json data for bar braph
+            var timeData = JSON.parse('<?php echo $timesheet ?>');
 
             am5.ready(function() {
 
@@ -222,13 +225,14 @@
 
                 var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
                     maxDeviation: 0.3,
-                    categoryField: "country",
+                    categoryField: "task",
                     renderer: xRenderer,
                     tooltip: am5.Tooltip.new(root, {})
                 }));
 
                 var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-                    maxDeviation: 0.3,
+                    maxDeviation: 1,
+
                     renderer: am5xy.AxisRendererY.new(root, {})
                 }));
 
@@ -239,9 +243,9 @@
                     name: "Series 1",
                     xAxis: xAxis,
                     yAxis: yAxis,
-                    valueYField: "value",
+                    valueYField: "time",
                     sequencedInterpolation: true,
-                    categoryXField: "country",
+                    categoryXField: "task",
                     tooltip: am5.Tooltip.new(root, {
                         labelText:"{valueY}"
                     })
@@ -258,21 +262,20 @@
 
 
 // Set data
-                var data = [{
-                    country: "USA",
-                    value: 2025
-                }, {
-                    country: "China",
-                    value: 1882
-                }, {
-                    country: "Japan",
-                    value: 2009
-                }];
 
+
+                //make data array for bar graph
+                var dataArray = [];
+                $.each(timeData, function( index, value ) {
+                    dataArray.push({
+                        task: index,
+                        time: value.total_time
+                    });
+                });
+                var data = dataArray;
 
                 xAxis.data.setAll(data);
                 series.data.setAll(data);
-
 
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/
