@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Tasks;
+use App\Models\Timesheets;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
 // use App\Http\Requests\TasksRequest;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Carbon\Carbon;
 
 class StatusController extends Controller
 {
@@ -68,9 +70,28 @@ class StatusController extends Controller
      */
     public function show($id)
     {
+        $timesheet = Timesheets::with('task')
+            ->where('task_id', $id)
+            ->get()
+            ->map(function($q) {
+                $key = date('Y-m-d', strtotime($q->start_time));
+                $q->start_date = $key;
+                $startTime = Carbon::parse($q->start_time);
+                $endTime = Carbon::parse($q->end_time);
+                $q->total_duration =  round($startTime->floatDiffInHours($endTime), 2);
+                return $q;
+            })
+            ->groupBy('start_date')
+            ->map(function($q) {
+                $q->sum = round($q->sum('total_duration'), 2);
+                return ['total_time' => $q->sum];
+            });
+
+       //wait
+        $timesheet = json_encode($timesheet);
         $singleTasks = Tasks::with('project', 'Milestones', 'User')
            ->where('id' , $id)->first();
-        return view('admin.task_status.show', compact('id', 'singleTasks'));
+        return view('admin.task_status.show', compact('id', 'singleTasks', 'timesheet'));
     }
 
     /**
