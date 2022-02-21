@@ -12,47 +12,41 @@
 </style>
 
 
-
-
 <div class="container wrapper">
-   <div class="row">
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <i class="fas fa-user fa-3x"></i>
-                 <hr class="my-4">
-                 <span>Customer Name</span>
-                <h3>{{$proposal->customers->user->name}}</h3>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <i class="fas fa-sticky-note fa-3x"></i>
-                 <hr class="my-4">
-                 <span>Subject</span>
-                <h3>{{$proposal->subject}}</h3>
+   <div class="card">
+       <div class="card-body">
+           <div class="row">
+               <div class="col-md-3">
+                   <div class="jumbotron">
+                       <i class="fas fa-sticky-note fa-3x"></i>
+                       <hr class="my-4">
+                       <span>Subject</span>
+                       <h3>{{$proposal->subject}}</h3>
 
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <i class="fas fa-calendar-alt fa-3x"></i>
-                 <hr class="my-4">
-                 <span>Due Date</span>
-                <h3>{{$proposal->due_date}}</h3>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="jumbotron">
-                <i class="fas fa-battery-empty  fa-3x"></i>
-                 <hr class="my-4">
-                 <span>Status</span>
-                <h3>{{$proposal->status}}</h3>
+                   </div>
+               </div>
+               <div class="col-md-3">
+                   <div class="jumbotron">
+                       <i class="fas fa-calendar-alt fa-3x"></i>
+                       <hr class="my-4">
+                       <span>Due Date</span>
+                       <h3>{{$proposal->due_date}}</h3>
+                   </div>
+               </div>
+               <div class="col-md-3">
+                   <div class="jumbotron">
+                       <i class="fas fa-battery-empty  fa-3x"></i>
+                       <hr class="my-4">
+                       <span>Status</span>
+                       <h3>{{$proposal->status}}</h3>
 
-            </div>
-        </div>
-    </div>
+                   </div>
+               </div>
+           </div>
 
 
+       </div>
+   </div>
 
 <!-- item info -->
     <div class="row">
@@ -182,14 +176,14 @@
                         <i class="fas fa-check" aria-hidden="true"></i>
                         Accept
                     </a>
-                    <a type="button" data-id="{{$proposal->id}}" class="btn btn-lg btn-danger reject-proposal"><i class="fas fa-ban" aria-hidden="true"></i> Reject</a>
+                    <a type="button" data-id="{{$proposal->id}}"  class="btn btn-lg btn-danger reject-proposal"><i class="fas fa-ban" aria-hidden="true"></i> Reject</a>
                 @elseif($proposal->status == 'accepted')
                   <a class="btn btn-lg btn-success">
                     <i class="fas fa-check" aria-hidden="true"></i>
                     Accepted
                  </a>
                  @elseif($proposal->status == 'rejected')
-                  <a class="btn btn-lg btn-danger">
+                  <a class="btn btn-lg btn-danger " >
                     <i class="fas fa-ban" aria-hidden="true"></i>
                     Rejected
                  </a>
@@ -217,11 +211,7 @@
             $(".summery").show();
         });
 
-        //reject proposal
-        $('.reject-proposal').on('click', function(){
-            $(".summery").hide(500);
-            $(".sig-form-show").show();
-        })
+
 
     });
 
@@ -403,40 +393,42 @@ submitBtn.addEventListener("click", function(e) {
 
 
 
-//   $(".reject-proposal").on('click', function() {
-//         if (!confirm("Do you want to reject ?")) {
-//             return false
-//         }
-//         var id = $(this).data('id');
-//         var url = '{{ route("proposals.destroy", ":id") }}';
-//         url = url.replace(':id', id);
-//         $.ajax({
-//             url: url,
-//             type: 'POST',
-//             dataType: 'json',
-//             headers: {
-//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//             },
-//             data: {
-//                 '_method': 'DELETE'
-//             },
-//             success: function(response) {
-//                 console.log(response)
-//                 if (response.status == 'success') {
-//                     toastr.success(response.message, 'Success !');
-//                     setTimeout(() => {
-//                         location.reload()
-//                     }, 3000);
-//                 } else {
-//                     toastr.error(response.message, 'Error !');
-//                 }
-//             },
-//             error: function(error) {
-//                 console.log(error)
-//                 toastr.error('Something went wrong !', 'Error !');
-//             }
-//         })
-//   })
+  $(".reject-proposal").on('click', function() {
+        if (!confirm("Do you want to reject ?")) {
+            return false
+        }
+        var id = $(this).data('id');
+         var url = '{{ route("proposals.destroy", ":id") }}';
+        url = url.replace(':id', id);
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                '_method': 'DELETE'
+            },
+            success: function(response) {
+                console.log(response)
+                if (response.status == 'success') {
+                    toastr.success(response.message, 'Success !');
+                    setTimeout(() => {
+                        location.reload()
+                    }, 3000);
+                } else {
+                    toastr.error(response.message, 'Error !');
+                }
+            },
+            error: function(error) {
+                console.log(error)
+                toastr.error('Something went wrong !', 'Error !');
+            }
+        })
+  })
 
 </script>
+
+
 @endsection
