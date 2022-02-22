@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\TimesheetsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IsAdmin;
 use App\Http\Controllers\IsCustomerController;
@@ -25,7 +26,7 @@ Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
 
     Route::resource('/invoice', InvoiceController::class);
     Route::resource('/task_list', StatusController::class);
-
+    Route::resource('/timesheets',TimesheetsController::class);
 
 
 });

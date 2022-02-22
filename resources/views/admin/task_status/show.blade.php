@@ -42,7 +42,7 @@
                             <ul style="list-style: none;margin: 0;padding: 0" class="d-flex">
                                 <li><a href="" title="Mark as Complete" class="btn btn-light-gray"><i class="fas fa-check"></i></a></li>
                                 <li><a href="" data-id="{{$singleTasks->id}}" data-toggle="modal" data-target="#statistics" title="Statistics" class="btn btn-light-gray statistics"><i class="fas fa-chart-bar"></i></a></li>
-                                <li><a href=""  title="Timesheets" class="btn btn-light-gray"><i class="fas fa-tasks"></i></a></li>
+                                <li><a href="{{route('timesheets.index')}}"  title="Timesheets" class="btn btn-light-gray"><i class="fas fa-tasks"></i></a></li>
                                 <li><a href=""  class="btn btn-success"><i class="fas fa-clock"></i> START TIMER</a></li>
                             </ul>
                         </div>
