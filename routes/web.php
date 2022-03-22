@@ -97,7 +97,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
     Route::resource('/timesheets',TimesheetsController::class);
     Route::resource('/paymentreceived', paymentreceivedController::class);
     Route::resource('/department', departmentController::class);
-    Route::resource('/proposal', proposalController::class);
+    Route::resource('/proposal', ProposalController::class);
     Route::get('/download/{id}', [ProposalController::class, 'printToPdf'])->name('download');
 
     Route::get('/getPrice/{id}', [proposalController::class, 'getPrice'])->name('getPrice');

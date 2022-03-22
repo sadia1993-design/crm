@@ -16,7 +16,6 @@ class ProposalItem extends Model
         return $this->belongsTo(Proposal::class, 'proposal_id', 'id');
     }
 
-
     public function item()
     {
         return $this->belongsTo(Item::class, 'item_id', 'id');

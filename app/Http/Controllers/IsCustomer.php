@@ -10,13 +10,17 @@ use Carbon\Carbon;
 
 class IsCustomer extends Controller
 {
+
+
     public function index()
     {
         //in voices due
        $invoice_due = Invoice::where('invoice_type', 'regular')
        ->where('customer_id', auth()->user()->customer->id)
        ->get();
-        $invoices =  Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
+
+
+       $invoices =  Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
             ->where('customer_id', auth()->user()->customer->id)
             ->where('invoice_type', 'recurring')
             ->get()
