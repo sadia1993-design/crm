@@ -348,18 +348,18 @@
 
 	<!-- External JavaScripts
 	============================================= -->
-	<script src="{{asset('lead_assets/js/jquery.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jRespond.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.easing.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.fitvids.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.stellar.js')}}"></script>
-	<script src="{{asset('lead_assets/js/owl.carousel.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.mb.YTPlayer.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.magnific-popup.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.validate.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/jquery.ajaxchimp.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/simple-scrollbar.min.js')}}"></script>
-	<script src="{{asset('lead_assets/js/functions.js')}}"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jRespond.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.easing.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.fitvids.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.stellar.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/owl.carousel.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.validate.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.ajaxchimp.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/simple-scrollbar.min.js"></script>
+	<script src="https://cr-managements.herokuapp.com/lead_assets/js/functions.js"></script>
 
 
 </body>
