@@ -21,7 +21,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\EstimateController;
 use App\Http\Controllers\LeadshowController;
-use App\Http\Controllers\proposalController;
+use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\AdmintaskController;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Routing\Route as RoutingRoute;
