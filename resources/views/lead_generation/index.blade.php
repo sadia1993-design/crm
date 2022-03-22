@@ -11,17 +11,17 @@
 
 	<!-- Stylesheets
 	============================================= -->
-	<link href="{{asset('lead_assets/css/css-assets.css')}}" rel="stylesheet">
-	<link href="{{asset('lead_assets/css/style.css')}}" rel="stylesheet">
+	<link href="https://cr-managements.herokuapp.com/lead_assets/css/css-assets.css" rel="stylesheet">
+	<link href="https://cr-managements.herokuapp.com/lead_assets/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,500i,600,600i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
 	<!-- Favicon
 	============================================= -->
-	<link rel="shortcut icon" href="{{asset('lead_assets/images/general-elements/favicon/favicon.png')}}">
-	<link rel="shortcut icon" href="{{asset('lead_assets/images/general-elements/favicon/apple-touch-icon.png')}}">
-	<link rel="apple-touch-icon" sizes="72x72" href="{{asset('lead_assets/images/general-elements/favicon/apple-touch-icon-72x72.png')}}">
-	<link rel="apple-touch-icon" sizes="114x114" href="{{asset('lead_assets/images/general-elements/favicon/apple-touch-icon-114x114.png')}}">
+	<link rel="shortcut icon" href="https://cr-managements.herokuapp.com/lead_assets/images/general-elements/favicon/favicon.png">
+	<link rel="shortcut icon" href="https://cr-managements.herokuapp.com/lead_assets/images/general-elements/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://cr-managements.herokuapp.com/lead_assets/images/general-elements/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://cr-managements.herokuapp.com/lead_assets/images/general-elements/favicon/apple-touch-icon-114x114.png">
 
 	<!-- Title
 	============================================= -->
