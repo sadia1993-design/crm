@@ -263,7 +263,7 @@
 														</div><!-- .ts-content end -->
 														<div class="ts-person">
 															<div class="ts-img">
-																<img src="{{asset('lead_assets/images/files/sliders/clients-testimonials/img-1.jpg')}}" alt="">
+																<img src="https://cr-managements.herokuapp.com/lead_assets/images/files/sliders/clients-testimonials/img-1.jpg" alt="">
 															</div><!-- .ts-img end -->
 															<h4>John Hancock</h4>
 															<span>Creative Team</span>
@@ -279,7 +279,7 @@
 														</div><!-- .ts-content end -->
 														<div class="ts-person">
 															<div class="ts-img">
-																<img src="{{asset('lead_assets/images/files/sliders/clients-testimonials/img-2.jpg')}}" alt="">
+																<img src="https://cr-managements.herokuapp.com/lead_assets/images/files/sliders/clients-testimonials/img-2.jpg" alt="">
 															</div><!-- .ts-img end -->
 															<h4>Jolya Smith</h4>
 															<span>PayPal Inc</span>
