@@ -25,7 +25,7 @@ use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\AdmintaskController;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Routing\Route as RoutingRoute;
-use App\Http\Controllers\departmentController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MilestonesController;
 use App\Http\Controllers\TimesheetsController;
 use App\Http\Controllers\UserRegisterController;
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
     Route::resource('/task_list', StatusController::class);
     Route::resource('/timesheets',TimesheetsController::class);
     Route::resource('/paymentreceived', paymentreceivedController::class);
-    Route::resource('/department', departmentController::class);
+    Route::resource('/department', DepartmentController::class);
     Route::resource('/proposal', ProposalController::class);
     Route::get('/download/{id}', [ProposalController::class, 'printToPdf'])->name('download');
 
