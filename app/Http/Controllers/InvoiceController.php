@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\User;
 use App\Models\Invoice;
-use App\Models\customers;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 use App\Models\EstimateItems;
 
@@ -52,12 +52,12 @@ class InvoiceController extends Controller
             });
             return view('admin.invoice.index', compact('invoices'));
         }
-       
 
 
 
 
-        
+
+
     }
 
     /**
@@ -100,7 +100,7 @@ class InvoiceController extends Controller
         }
         $est_item = EstimateItems::where('estimate_id', $id)->get();
         // dd($est_item);
-        $customer = customers::where('id', $customer_id)->first();
+        $customer = Customers::where('id', $customer_id)->first();
         $itemm = Item::get();
         $Item = Item::with('unit', 'tax')
             ->get();
