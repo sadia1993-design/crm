@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\User;
 use Redirect, Response;
-use App\Models\proposal;
+use App\Models\Proposal;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Customers;
 use App\Models\ProposalItem;
@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProposalController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +25,7 @@ class ProposalController extends Controller
     public function index()
     {
         $contacts = customers::get();
-        $contacts = proposal::all();
+        $contacts = Proposal::all();
         //  dd($contacts->proposals);
         return view('admin.proposal.index', compact('contacts'));
     }
