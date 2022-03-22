@@ -40,7 +40,7 @@ class ProposalController extends Controller
         $contacts = customers::get();
         $data = Item::get();
         $Item = User::where('role', 'customer')->get();
-        $dat = proposal::get();
+        $dat = Proposal::get();
         return view('admin.proposal.create', compact('contacts', 'data', 'Item', 'dat'));
     }
 
@@ -96,7 +96,7 @@ class ProposalController extends Controller
     public function show($id)
     {
 
-        $contacts = proposal::find($id);
+        $contacts = Proposal::find($id);
         // $ProposalItem = ProposalItem::where('proposal_id', $id)->get();
         return view('admin.proposal.show', compact('contacts'));
     }
@@ -104,7 +104,7 @@ class ProposalController extends Controller
     {
 
         // return "ok";
-        $contact = proposal::find($id);
+        $contact = Proposal::find($id);
         $ProposalItem = ProposalItem::where('proposal_id', $id)->get();
         $pdf = \PDF::loadView('admin.proposal.download', compact('contact', 'ProposalItem'));
         return $pdf->download();
@@ -120,7 +120,7 @@ class ProposalController extends Controller
     public function edit($id)
     {
 
-        $contacts = proposal::find($id);
+        $contacts = Proposal::find($id);
         $user = User::where('role', 'user')->get();
         $item = Item::get();
         $customers = Customers::get();
@@ -187,7 +187,7 @@ class ProposalController extends Controller
      */
     public function destroy($id)
     {
-        $data = proposal::find($id);
+        $data = Proposal::find($id);
         $data->delete();
         return redirect('admin/proposal')->with('success', ' proposals deleted successfully');
     }
