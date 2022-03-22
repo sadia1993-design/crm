@@ -42,7 +42,7 @@
 		<section id="banner">
 
 			<div class="banner-parallax" data-banner-height="700">
-				<img src="{{asset('lead_assets/images/files/parallax-bg/img-1.jpg')}}" alt="">
+				<img src="https://cr-managements.herokuapp.com/lead_assets/images/files/parallax-bg/img-1.jpg" alt="">
 				<div class="overlay-colored color-bg-theme opacity-80"></div><!-- .overlay-colored end -->
 				<div class="slide-content">
 
