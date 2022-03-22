@@ -89,7 +89,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <table border="1">
+                    <table border="1" class="table table-striped table-bordered table-hover">
                         <tr>
                             <th></th>
                             <th>Email</th>
