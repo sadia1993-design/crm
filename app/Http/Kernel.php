@@ -68,5 +68,4 @@ class Kernel extends HttpKernel
         'ChkCustomer' =>  \App\Http\Middleware\ChkCustomer::class
     ];
 
-
 }
