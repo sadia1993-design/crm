@@ -81,7 +81,7 @@ class ProjectController extends Controller
             }
         }
 
-        return view('admin.Projects.show', compact('proj_task','total_task','p_t_spend','contacts', 'id', 'task_count', 'milestone_count', 'project_count', 'projects'));
+        return view('admin.projects.show', compact('proj_task','total_task','p_t_spend','contacts', 'id', 'task_count', 'milestone_count', 'project_count', 'projects'));
     }
     public function edit($id)
     {

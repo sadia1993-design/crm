@@ -219,7 +219,6 @@ class InvoiceController extends Controller
 
     public function mail_send($id)
     {
-
         $details = Invoice::with('customer', 'items', 'customer.user', 'items.unit', 'items.tax')
             ->where('invoice_number', $id)
             ->get();
@@ -228,4 +227,7 @@ class InvoiceController extends Controller
         \Mail::to("$user")->send(new \App\Mail\InvoiceMail($details));
         return redirect()->back()->with('success', 'Mail Sent Successfully');
     }
+
+
+
 }
