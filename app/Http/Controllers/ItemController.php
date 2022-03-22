@@ -42,11 +42,11 @@ class ItemController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'rate' => 'required|max:6',
+            'rate' => 'required',
             'unit_id' => 'required',
         ]);
         Item::create($request->all());
-        return redirect()->route('item.index');
+        return redirect()->route('item.create');
     }
 
     /**
