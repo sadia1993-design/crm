@@ -42,9 +42,7 @@ class ItemController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'description' => 'required',
             'rate' => 'required|max:6',
-            'tax_id' => 'required',
             'unit_id' => 'required',
         ]);
         Item::create($request->all());
@@ -105,7 +103,7 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $data = Item::find($id);
         $data->delete();
         return redirect()->route('item.index');

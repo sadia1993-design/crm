@@ -15,16 +15,16 @@
 				<label for="rate">Rate</label>
 				<input type="text" name="rate" class="form-control" placeholder="Rate" value="{{ old('rate') }}">
 				<span style="color: red">@error('rate'){{ $message }}</span>@enderror
-			</div>	
+			</div>
 		</div>
 
 		<div class="form-row">
-		
+
 			<div class="form-group col-md-6">
 				<label for="tax_id">Tax Rule</label><br>
-				<span style="color: red">@error('tax_id'){{ $message }}</span>@enderror
+
 				<select id="tax_id" class="custom-select" name="tax_id">
-					<option disabled value="">Select Rule</option>
+					<option  value="">Select Rule</option>
 					@foreach ($tax as $t )
 					 @if (old('tax_id')==$t->id)
 					<option value="{{ $t->id }}" {{ 'selected' }}>{{ $t->rules }}</option>
@@ -37,7 +37,7 @@
 
 			<div class="form-group col-md-6">
 				<label for="unit_id">Unit Name</label><br>
-				<span style="color: red">@error('unit_id'){{ $message }}</span>@enderror
+
 				<select id="unit_id" class="custom-select" name="unit_id">
 					<option disabled value="">Select Unit</option>
 
@@ -49,21 +49,22 @@
 							@endif
 						@endforeach
 				</select>
+                <span style="color: red">@error('unit_id'){{ $message }}</span>@enderror
 			</div>
 
 		</div>
 
 		<div class="form-row">
-			
+
 			<div class="form-group col-md-12">
 				<label for="desc">Description</label>
              <textarea id="desc" class="form-control" name="description" value="" placeholder="Description">{{ old('description') }}</textarea>
-			 <span style="color: red">@error('description'){{ $message }}</span>@enderror
+
 			</div>
 		</div>
 
 		<div class="form-row">
-	
+
 
 			{{-- Datalis code --}}
     {{-- <div class="form-group col-md-6">
