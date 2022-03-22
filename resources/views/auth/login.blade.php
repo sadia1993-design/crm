@@ -41,7 +41,7 @@
             <h4 class="m-0">Welcome back!</h4>
             <p class="mb-5">Login to CRM Account </p>
 
-            <form action="{{ url('https://cr-managements.herokuapp.com/login') }}" method="Post">
+            <form action="{{ route('login') }}" method="Post">
                 @csrf
                 <div class="form-group">
                     <label class="text-label" for="email">Email Address:</label>
