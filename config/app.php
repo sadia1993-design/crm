@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/crm/'),
+    'url' => env('APP_URL', 'https://cr-managements.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 
