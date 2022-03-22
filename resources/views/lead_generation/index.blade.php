@@ -11,8 +11,8 @@
 
 	<!-- Stylesheets
 	============================================= -->
-	<link href="{{asset('lead_assets/css/css-assets.css')}}" rel="stylesheet">
-	<link href="{{asset('lead_assets/css/style.css')}}" rel="stylesheet">
+	<link href="{{secure_asset('lead_assets/css/css-assets.css')}}" rel="stylesheet">
+	<link href="{{secure_asset('lead_assets/css/style.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,500i,600,600i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
