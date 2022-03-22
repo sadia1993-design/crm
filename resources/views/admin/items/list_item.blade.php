@@ -36,7 +36,7 @@
 				<td class="highlight">{{ $item_data->name }}</td>
 				<td>{{ $item_data->description }}</td>
 				<td>{{ $item_data->rate }}</td>
-				<td>{{ $item_data->tax->rules  }}</td>
+				<td>{{ $item_data->tax->rule  }}</td>
 				<td>{{ $item_data->unit->unit_name }}</td>
 				<td>
 					<form action="{{ route('item.destroy',$item_data->id) }}" method="post" id="delete{{$item_data->id}}">
@@ -54,5 +54,5 @@
     </table>
 </div>
 {{-- Table ends here --}}
-	
+
 @endsection
