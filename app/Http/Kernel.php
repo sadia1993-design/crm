@@ -44,13 +44,7 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'ChkAdmin' => [
 
-            \App\http\Middleware\ChkAdmin::class
-        ],
-        'ChkCustomer' => [
-            \App\http\Middleware\ChkCustomer::class
-        ],
     ];
 
     /**
@@ -70,5 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'ChkAdmin' => \App\Http\Middleware\ChkAdmin::class,
+        'ChkCustomer' =>  \App\Http\Middleware\ChkCustomer::class
     ];
 }

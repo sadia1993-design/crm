@@ -49,7 +49,7 @@ use App\Http\Controllers\customer\EstimateController as CustomerEstimate;
 |
 */
 
-Route::Group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
 
     Route::get('/gantt/{id}', [CustomersController::class, 'gantt'])->name('gantt');
     // Mehedi:
