@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProposalItem extends Model
 {
     use HasFactory;
-    protected $table = 'proposalItems';
+    protected $table = 'proposalitems';
     protected $fillable = ['proposal_id', 'item_id', 'price', 'qty'];
 
     public function proposal()

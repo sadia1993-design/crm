@@ -13,7 +13,7 @@ class CreateProposalItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('proposalItems', function (Blueprint $table) {
+        Schema::create('proposalitems', function (Blueprint $table) {
             $table->id();
             // $table->unsignedBigInteger('proposal_id')->index();
             // $table->unsignedBigInteger('item_id')->index();
@@ -22,10 +22,10 @@ class CreateProposalItemsTable extends Migration
             $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('proposal_id')->references('id')->on('proposals')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
-            
+
         });
 
-        
+
     }
 
         // $table->id();
