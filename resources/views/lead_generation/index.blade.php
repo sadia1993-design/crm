@@ -51,7 +51,7 @@
 							<div class="col-md-7 pr-40">
 
 								<div class="banner-center-box text-white padding:100px">
-									<img class="logo-banner" src="images/files/logo-banner.png" alt="">
+									<img class="logo-banner" src="https://cr-managements.herokuapp.com/lead_assets/images/files/logo-banner.png" alt="">
 									<h1>We are passionate to enrich people’s lives</h1>
 									<div class="description">
 										Whatever the level of support you require, we are sure that we will have a package that meets your needs.
