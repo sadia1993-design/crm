@@ -11,16 +11,16 @@
         <meta name="robots" content="noindex">
 
         <!-- Perfect Scrollbar -->
-        <link type="text/css" href="{{asset('assets/vendor/perfect-scrollbar.css')}}" rel="stylesheet">
+        <link type="text/css" href="http://cr-managements.herokuapp.com/assets/vendor/perfect-scrollbar.css" rel="stylesheet">
 
         <!-- App CSS -->
-        <link type="text/css" href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+        <link type="text/css" href="http://cr-managements.herokuapp.com/assets/css/style.css" rel="stylesheet">
 
         <!-- Material Design Icons -->
-        <link type="text/css" href="{{asset('assets/css/vendor-material-icons.css')}}" rel="stylesheet">
+        <link type="text/css" href="http://cr-managements.herokuapp.com/assets/css/vendor-material-icons.css" rel="stylesheet">
 
         <!-- Font Awesome FREE Icons -->
-        <link type="text/css" href="{{asset('assets/css/vendor-fontawesome-free.css')}}" rel="stylesheet">
+        <link type="text/css" href="http://cr-managements.herokuapp.com/assets/css/vendor-fontawesome-free.css" rel="stylesheet">
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133433427-1"></script>
@@ -88,26 +88,26 @@
         </div>
 
         <!-- jQuery -->
-        <script src="{{asset('assets/vendor/jquery.min.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/jquery.min.js"></script>
 
         <!-- Bootstrap -->
-        <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
-        <script src="{{asset('assets/vendor/bootstrap.min.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/popper.min.js"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/bootstrap.min.js"></script>
 
         <!-- Perfect Scrollbar -->
-        <script src="{{asset('assets/vendor/perfect-scrollbar.min.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/perfect-scrollbar.min.js"></script>
 
         <!-- DOM Factory -->
-        <script src="{{asset('assets/vendor/dom-factory.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/dom-factory.js"></script>
 
         <!-- MDK -->
-        <script src="{{asset('assets/vendor/material-design-kit.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/vendor/material-design-kit.js"></script>
 
         <!-- App -->
-        <script src="{{asset('assets/js/script.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/js/script.js"></script>
 
         <!-- App Settings (safe to remove) -->
-        <script src="{{asset('assets/js/app-settings.js')}}"></script>
+        <script src="http://cr-managements.herokuapp.com/assets/js/app-settings.js"></script>
 
     </body>
 
