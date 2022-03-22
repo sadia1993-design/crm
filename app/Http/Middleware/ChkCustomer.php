@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ChkCustomer
 {
+
+
     /**
      * Handle an incoming request.
      *
