@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label class="text-label" for="email">Email Address:</label>
                     <div class="input-group input-group-merge">
-                        <input id="email" type="email" required="" class="form-control form-control-prepended @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" required="" value="test@gmail.com" class="form-control form-control-prepended @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="far fa-envelope"></span>
@@ -62,7 +62,7 @@
                 <div class="form-group">
                     <label class="text-label" for="password">Password:</label>
                     <div class="input-group input-group-merge">
-                        <input id="password" type="password" class="form-control form-control-prepended @error('password') is-invalid @enderror" name="password" placeholder="Enter your password">
+                        <input id="password" type="password" value="12345" class="form-control form-control-prepended @error('password') is-invalid @enderror" name="password" placeholder="Enter your password">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="fa fa-key"></span>

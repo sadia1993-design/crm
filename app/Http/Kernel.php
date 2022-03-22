@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
         'ChkAdmin' => [
+
             \App\http\Middleware\ChkAdmin::class
         ],
         'ChkCustomer' => [
