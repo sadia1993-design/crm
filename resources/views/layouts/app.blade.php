@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard</title>
@@ -24,7 +24,7 @@
     <!-- Table -->
     <link type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
 
-   
+
     <!-- Perfect Scrollbar -->
     <link type="text/css" href="{{ asset('assets/vendor/perfect-scrollbar.css') }}" rel="stylesheet">
 
@@ -230,7 +230,7 @@
 
                                         </ul>
                                     </li>
-                                    
+
                                     <li class="sidebar-menu-item  ">
                                         <a class="sidebar-menu-button" data-toggle="collapse" href="#lead">
                                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
@@ -416,7 +416,7 @@
                                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
                                             <span class="sidebar-menu-text">Task List</span>
                                         </a>
-    
+
                                     </li>
 
                                     <li class="sidebar-menu-item">
@@ -487,18 +487,18 @@
                                         </ul>
                                     </li>
 
-                                 
-
-                                    
-
-                                    
-                                    
 
 
-                                    
 
 
-                                    
+
+
+
+
+
+
+
+
 
 
 
@@ -554,10 +554,10 @@
                                         </ul>
                                     </li>
 
-                                   
 
 
-                                    
+
+
 
 
 
@@ -586,7 +586,7 @@
                                     </li>
 
 
-                                    
+
 
 
                                 </ul>
@@ -740,7 +740,7 @@
     <!-- DOM Factory -->
     <script src="{{ asset('assets/vendor/dom-factory.js') }}"></script>
 
-    
+
     {{-- toastr --}}
     <script src="{{ asset('assets/vendor/toastr.min.js') }}"></script>
 
@@ -781,7 +781,7 @@
                 responsive:true,
                 serverSide: false
             });
-            
+
         });
     </script>
     {{-- Ck editor --}}
