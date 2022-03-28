@@ -215,36 +215,21 @@
                             <div class="sidebar sidebar-light sidebar-left sidebar-p-t" data-perfect-scrollbar>
                                 <div class="sidebar-heading">Menu</div>
                                 <ul class="sidebar-menu">
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                            <span class="sidebar-menu-text">Dashboards</span>
-                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                        </a>
-                                        <ul class="sidebar-submenu collapse  " id="dashboards_menu">
-                                            <li class="sidebar-menu-item ">
-                                                <a class="sidebar-menu-button" href="{{ route('dashboard') }}">
-                                                    <span class="sidebar-menu-text">Dashboard</span>
-                                                </a>
-                                            </li>
 
-                                        </ul>
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button"  href="{{route('dashboard')}}">
+                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                            <span class="sidebar-menu-text">Dashboard</span>
+                                        </a>
+
                                     </li>
 
-                                    <li class="sidebar-menu-item  ">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#lead">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                            <span class="sidebar-menu-text">Leads</span>
-                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                    <li class="sidebar-menu-item ">
+                                        <a class="sidebar-menu-button" href="{{ route('leads.index') }}">
+                                            <span class="sidebar-menu-text">Show Lead</span>
                                         </a>
-                                        <ul class="sidebar-submenu collapse  " id="lead">
-                                            <li class="sidebar-menu-item ">
-                                                <a class="sidebar-menu-button" href="{{ route('leads.index') }}">
-                                                    <span class="sidebar-menu-text">Show Lead</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
+
                                     <li class="sidebar-menu-item  ">
                                         <a class="sidebar-menu-button" data-toggle="collapse" href="#customer">
                                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
