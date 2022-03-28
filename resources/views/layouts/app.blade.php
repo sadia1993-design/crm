@@ -218,7 +218,7 @@
 
                                     <li class="sidebar-menu-item ">
                                         <a class="sidebar-menu-button"  href="{{route('dashboard')}}">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                            <i class="fas fa-tachometer"></i>
                                             <span class="sidebar-menu-text">Dashboard</span>
                                         </a>
 
@@ -226,6 +226,7 @@
 
                                     <li class="sidebar-menu-item ">
                                         <a class="sidebar-menu-button" href="{{ route('leads.index') }}">
+                                            <i class="fad fa-search"></i>
                                             <span class="sidebar-menu-text">Show Lead</span>
                                         </a>
                                     </li>
