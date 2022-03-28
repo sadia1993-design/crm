@@ -358,8 +358,9 @@
 	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.validate.min.js"></script>
 	<script src="https://cr-managements.herokuapp.com/lead_assets/js/jquery.ajaxchimp.min.js"></script>
-	<script src="https://cr-managements.herokuapp.com/lead_assets/js/simple-scrollbar.min.js"></script>
+
 	<script src="https://cr-managements.herokuapp.com/lead_assets/js/functions.js"></script>
+    <script src="https://cr-managements.herokuapp.com/lead_assets/js/simple-scrollbar.min.js"></script>
 
 
 </body>
