@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body oncontextmenu="return false">
 
 	<div id="scroll-progress"><div class="scroll-progress"><span class="scroll-percent"></span></div></div>
 
