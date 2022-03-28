@@ -218,7 +218,7 @@
 
 									<div class="box-center">
 										<div class="video-preview">
-											<iframe src="https://www.youtube.com/watch?v=c738kBfZKeA" allowfullscreen></iframe>
+                                            <iframe  src="https://www.youtube.com/embed/hnEQq7kNFWo" title="CRM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 										</div><!-- .video-preview end -->
 									</div><!-- .box-center end -->
 
