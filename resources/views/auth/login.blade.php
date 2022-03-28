@@ -89,25 +89,27 @@
 
             <div class="card">
                 <div class="card-body">
-                    <table border="1" class="table table-striped table-bordered table-hover">
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Password</th>
-                        </tr>
+                    <div class="table-responsive">
+                        <table border="1" class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <th></th>
+                                <th>Email</th>
+                                <th>Password</th>
+                            </tr>
 
-                        <tr>
-                            <td><strong>Admin Login</strong></td>
-                            <td>test@gmail.com</td>
-                            <td>12345</td>
-                        </tr>
+                            <tr>
+                                <td><strong>Admin Login</strong></td>
+                                <td>test@gmail.com</td>
+                                <td>12345</td>
+                            </tr>
 
-                        <tr>
-                            <td><strong>Customer Login</strong></td>
-                            <td>customer@gmail.com</td>
-                            <td>12345</td>
-                        </tr>
-                    </table>
+                            <tr>
+                                <td><strong>Customer Login</strong></td>
+                                <td>customer@gmail.com</td>
+                                <td>12345</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
