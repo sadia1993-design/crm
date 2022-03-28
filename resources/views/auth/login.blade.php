@@ -27,7 +27,7 @@
 
     </head>
 
-    <body class="layout-login">
+    <body class="layout-login" oncontextmenu="return false">
 
         <div class="layout-login__overlay"></div>
         <div class="layout-login__form bg-white" data-perfect-scrollbar>
