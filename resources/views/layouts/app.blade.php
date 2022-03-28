@@ -347,21 +347,14 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" data-toggle="collapse" href="#invoice">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                            <span class="sidebar-menu-text">Invoice</span>
-                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
-                                        </a>
-                                        <ul class="sidebar-submenu collapse" id="invoice">
-                                            <li class="sidebar-menu-item">
-                                                <a class="sidebar-menu-button" href="{{ url('admin/invoice') }}">
-                                                    <span class="sidebar-menu-text">View Invoice</span>
-                                                </a>
-                                            </li>
 
-                                        </ul>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="{{ url('admin/invoice') }}">
+                                            <i class="fas fa-file-invoice"></i>
+                                            <span class="sidebar-menu-text">View Invoice</span>
+                                        </a>
                                     </li>
+
                                     <li class="sidebar-menu-item  ">
                                         <a class="sidebar-menu-button" data-toggle="collapse" href="#payment">
                                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
