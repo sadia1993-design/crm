@@ -30,8 +30,7 @@
             </tr>
         </tfoot>
         <tbody>
-        {{dd($data)}}
-        {{exit}}
+
 			@foreach ($data as $i=>$item_data)
 
             <tr>
@@ -39,7 +38,13 @@
 				<td class="highlight">{{ $item_data->name }}</td>
 				<td>{{ $item_data->description }}</td>
 				<td>{{ $item_data->rate }}</td>
-				<td>{{ $item_data->tax->rules  }}</td>
+				<td>
+                    @if( $item_data->tax->rules  == null)
+                        {{ 0  }}
+                    @else
+                        {{ $item_data->tax->rules  }}
+                    @endif
+                </td>
 				<td>{{ $item_data->unit->unit_name }}</td>
 				<td>
 					<form action="{{ route('item.destroy',$item_data->id) }}" method="post" id="delete{{$item_data->id}}">
