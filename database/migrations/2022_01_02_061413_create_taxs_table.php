@@ -27,6 +27,6 @@ class CreateTaxsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxes');
+        Schema::dropIfExists('taxs');
     }
 }

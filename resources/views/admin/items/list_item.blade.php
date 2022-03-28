@@ -30,7 +30,9 @@
             </tr>
         </tfoot>
         <tbody>
+        {{dd($data)}}
 			@foreach ($data as $i=>$item_data)
+
             <tr>
 				<td>{{ ++$i }}</td>
 				<td class="highlight">{{ $item_data->name }}</td>
