@@ -31,6 +31,7 @@
         </tfoot>
         <tbody>
         {{dd($data)}}
+        {{exit}}
 			@foreach ($data as $i=>$item_data)
 
             <tr>
