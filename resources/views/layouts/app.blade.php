@@ -218,7 +218,7 @@
 
                                     <li class="sidebar-menu-item ">
                                         <a class="sidebar-menu-button"  href="{{route('dashboard')}}">
-                                            <i class="fas fa-chart-line"></i>
+                                            <i class="fas fa-chart-line mr-3"></i>
                                             <span class="sidebar-menu-text">Dashboard</span>
                                         </a>
 
@@ -226,14 +226,14 @@
 
                                     <li class="sidebar-menu-item ">
                                         <a class="sidebar-menu-button" href="{{ route('leads.index') }}">
-                                            <i class="fas fa-search"></i>
+                                            <i class="fas fa-search mr-3"></i>
                                             <span class="sidebar-menu-text">Show Lead</span>
                                         </a>
                                     </li>
 
                                     <li class="sidebar-menu-item  ">
                                         <a class="sidebar-menu-button" data-toggle="collapse" href="#customer">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                            <i class="fas fa-users mr-3"></i>
                                             <span class="sidebar-menu-text">Customer</span>
                                             <span class="ml-auto sidebar-menu-toggle-icon"></span>
                                         </a>
