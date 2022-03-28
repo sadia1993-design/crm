@@ -350,7 +350,7 @@
 
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="{{ url('admin/invoice') }}">
-                                            <i class="fas fa-file-invoice"></i>
+                                            <i class="fas fa-file-invoice mr-3"></i>
                                             <span class="sidebar-menu-text">View Invoice</span>
                                         </a>
                                     </li>
