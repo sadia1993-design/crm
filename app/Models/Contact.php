@@ -17,6 +17,6 @@ class Contact extends Model
     ];
     public function customers()
     {
-        return $this->belongsTo(customers::class,'customer_id', 'id');
+        return $this->belongsTo(Customers::class,'customer_id', 'id');
     }
 }
