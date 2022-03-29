@@ -6,7 +6,7 @@ use DateTime;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Project;
-use App\Models\customers;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Unique;
@@ -21,7 +21,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $data = customers::get();
+        $data = Customers::get();
         return view('admin.customer.customers_list', compact('data'));
     }
 

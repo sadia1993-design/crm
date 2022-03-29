@@ -16,6 +16,9 @@ class Item extends Model
         'unit_id'
     ];
 
+//eta live ei kori naile abr connection barbar chng kora
+
+
     public function tax()
     {
         return $this->belongsTo(Tax::class, 'tax_id', 'id');
