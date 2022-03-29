@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Models\customers;
+use App\Models\Customers;
 
 use Illuminate\Http\Request;
 
@@ -27,7 +27,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $data = customers::get();
+        $data = Customers::get();
         return view('admin.contact.add_contact', compact('data'));
     }
 
@@ -83,7 +83,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());            
+        // dd($request->all());
         $request->validate([
             'customer_id' => 'required',
             'name' => 'required',
