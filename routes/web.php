@@ -110,7 +110,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['ChkAdmin']], function () {
     Route::resource('/payments', PaymentController::class);
     Route::get('/est_invoice/{id}/{estimate_id}', [InvoiceController::class, 'estimate_invoice'])->name('est_invoice');
 });
-
 Route::Group(['middleware' => ['ChkCustomer']], function () {
     Route::get('/customer_panel', [IsCustomer::class, 'index'])->name('customer_panel');
 
@@ -126,16 +125,24 @@ Route::Group(['middleware' => ['ChkCustomer']], function () {
     Route::get('proposal/declined', [ProposalApproveController::class, 'declined'])->name('proposals.declined');
     Route::resource('/proposals', ProposalApproveController::class);
     Route::get('/proposalDownload/{id}', [ProposalApproveController::class, 'printToPdf'])->name('proposalDownload');
-
     Route::resource('/customer_invoice', InvoiceStatusController::class);
 });
 
 
 Auth::routes(['register' => false]);
-
-// Route::get('/', function () {
-//     return redirect()->route('login');
-// });
-
 Route::post('store/lead', [LeadController::class, 'store'])->name('store.lead');
 Route::get('/', [LeadController::class, 'index'])->name('front');
+
+
+Route::get('clear-cache', function () {
+    \Artisan::call('cache:clear');
+});
+Route::get('clear-config', function () {
+    \Artisan::call('config:clear');
+});
+Route::get('clear-route', function () {
+    \Artisan::call('route:clear');
+});
+
+
+
